@@ -1,8 +1,7 @@
-"use client"; // Isso garante que o Next.js trate este componente como um Client Component
+"use client";
 
 import { useState } from 'react';
-import { FaEnvelope, FaLock } from 'react-icons/fa'; // Importando ícones do React Icons
-import styles from '../styles/Cadastro.module.css'; // Ajuste o caminho conforme necessário
+import styles from '../styles/Cadastro.module.css';
 
 function Cadastro() {
     const [email, setEmail] = useState('');
@@ -25,10 +24,8 @@ function Cadastro() {
         <div className={styles.container}>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <h1 className={styles.LOGIN}>LOGIN</h1>
-                
-                {/* Campo de Email com Ícone */}
+            
                 <div className={styles.inputGroup}>
-                    <FaEnvelope className={styles.icon} />
                     <input
                          type="email"
                         placeholder="Email"
@@ -38,9 +35,7 @@ function Cadastro() {
                     />
                 </div>
                 
-                {/* Campo de Senha com Ícone */}
                 <div className={styles.inputGroup}>
-                    <FaLock className={styles.icon} />
                     <input
                         type="password"
                         placeholder="Senha"
