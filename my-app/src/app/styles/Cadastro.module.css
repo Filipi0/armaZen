@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
+}
+
+
 /* Estilos para o container principal */
 .container {
   display: flex;
@@ -20,6 +26,7 @@
 }
 
 .LOGIN {
+  font-family: Poppins;
   font-size: 2.6rem;
   font-weight: bold;
   margin-bottom: 5rem;
