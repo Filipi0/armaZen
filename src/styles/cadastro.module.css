@@ -1,6 +1,11 @@
 @font-face {
+  @font-face {
     font-family: 'Poppins';
-    src: url('/fonts/Poppins-ExtraBold.ttf') format('truetype');
+    src: url('/fonts/Poppins-1/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
   }
   
   
