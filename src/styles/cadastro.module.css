@@ -38,8 +38,13 @@
 .leftSide p {
     font-size: 1rem;
     margin-bottom: 1rem;
-    height: 100px;
+    height: 60px;
+}
 
+.bemVindo {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important; 
+    height: 60px !important;
 }
 
 /* Estilos do botão na seção esquerda */
@@ -93,8 +98,7 @@
     position: relative;
     margin-bottom: 20px;
     width: 170%;
-    right: 30%;
-
+    right: 35%;
 }
 
 /* Estilos do ícone nos inputs */
@@ -113,7 +117,7 @@
     font-size: 1rem;
     border: none;
     border-radius: 5px;
-    background-color: #F6F6F6;
+    background-color: #F3EBEB;
     color: #333333;
 }
 

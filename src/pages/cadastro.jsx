@@ -29,7 +29,7 @@ function Cadastro() {
             <div className={styles.leftSide}>
                 <h1>SCENA-PNAE</h1>
                 <p>Comida fresca, Estoque em ordem, Qualidade em dia.</p>
-                <p>Seja bem-vindo de volta!</p>
+                <p className = {styles.bemVindo}>Seja bem-vindo de volta!</p>
                 <p>Acesse sua conta agora mesmo!</p>
                 <button className={styles.btn}>ENTRAR</button>
                 <a href="#" className={styles.forgotPassword}>Esqueci minha senha.</a>
