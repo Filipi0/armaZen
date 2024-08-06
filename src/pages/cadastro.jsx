@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from 'react'; 
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/cadastro.module.css';
 
 function Cadastro() {
@@ -26,8 +28,9 @@ function Cadastro() {
                 <h1 className={styles.LOGIN}>LOGIN</h1>
             
                 <div className={styles.inputGroup}>
+                    <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
                     <input
-                         type="email"
+                        type="email"
                         placeholder="Email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
@@ -36,6 +39,7 @@ function Cadastro() {
                 </div>
                 
                 <div className={styles.inputGroup}>
+                    <FontAwesomeIcon icon={faLock} className={styles.icon} />
                     <input
                         type="password"
                         placeholder="Senha"
