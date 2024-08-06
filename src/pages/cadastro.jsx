@@ -2,10 +2,11 @@
 
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/cadastro.module.css';
 
 function Cadastro() {
+    const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
@@ -13,6 +14,7 @@ function Cadastro() {
         e.preventDefault();
 
         const usuario = {
+            nome,
             email,
             senha
         };
@@ -24,33 +26,50 @@ function Cadastro() {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit} className={styles.form}>
-                <h1 className={styles.LOGIN}>LOGIN</h1>
-            
-                <div className={styles.inputGroup}>
-                    <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
-                    <input
-                        type="email"
-                        placeholder="Email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className={styles.input}
-                    />
-                </div>
-                
-                <div className={styles.inputGroup}>
-                    <FontAwesomeIcon icon={faLock} className={styles.icon} />
-                    <input
-                        type="password"
-                        placeholder="Senha"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)}
-                        className={styles.input}
-                    />
-                </div>
-                
-                <button type="submit" className={styles.button}>Entrar</button>
-            </form>
+            <div className={styles.leftSide}>
+                <h1>SCENA-PNAE</h1>
+                <p>Comida fresca, Estoque em ordem, Qualidade em dia.</p>
+                <p>Seja bem-vindo de volta!</p>
+                <p>Acesse sua conta agora mesmo!</p>
+                <button className={styles.btn}>ENTRAR</button>
+                <a href="#" className={styles.forgotPassword}>Esqueci minha senha.</a>
+            </div>
+            <div className={styles.rightSide}>
+                <h2>Crie sua conta</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className={styles.inputGroup}>
+                        <FontAwesomeIcon icon={faUser} className={styles.icon} />
+                        <input
+                            type="text"
+                            placeholder="Nome"
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
+                        <input
+                            type="email"
+                            placeholder="Email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <div className={styles.inputGroup}>
+                        <FontAwesomeIcon icon={faLock} className={styles.icon} />
+                        <input
+                            type="password"
+                            placeholder="Senha"
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)}
+                            required
+                        />
+                    </div>
+                    <button type="submit" className={styles.btn}>CADASTRAR</button>
+                </form>
+            </div>
         </div>
     );
 }

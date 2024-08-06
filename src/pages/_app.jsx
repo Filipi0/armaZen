@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
-import Cadastro from "../pages/cadastro.jsx";
+ import Cadastro from "./cadastro.jsx";
+// import Login from "./login.jsx";
 
-export default function App() {
-  return < 
-  Cadastro />;
+
+export default function App({ Component, pageProps }) {
+    return <Cadastro />;
 }

@@ -1,85 +1,116 @@
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-1/Poppins-ExtraBold.ttf') format('truetype');
-  font-weight: 900;
-  font-style: normal;
-}
-
-/* Estilos para o container principal */
+/* Estilos do contêiner principal */
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: #ffffff;
+    display: flex;
+    width: 100%;
+    height: 100vh; /* Ocupa toda a altura da tela */
+    overflow: hidden;
 }
 
-/* Estilos gerais para o formulário */
-.form {
-  background-color: #F49F0A;
-  padding: 6.8rem;
-  border-radius: 16px;
-  max-width: 550px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-/* Estilos para nome 'login' */
-.LOGIN {
-  font-family: 'Poppins';
-  font-size: 2.6rem;
-  font-weight: bold;
-  margin-bottom: 5rem;
-  color: #ffffff;
-  display: flex;
-  justify-content: center;
+/* Estilos da seção esquerda */
+.leftSide {
+    background-color: #F49F0A;
+    color: #ffffff;
+    padding: 40px;
+    width: 35%; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Estilos para os grupos de input */
+/* Estilos do título na seção esquerda */
+.leftSide h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos do parágrafo na seção esquerda */
+.leftSide p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos do botão na seção esquerda */
+.leftSide .btn {
+    background-color: #00A6A6;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+/* Estilos do link "Esqueci minha senha" na seção esquerda */
+.leftSide .forgotPassword {
+    margin-top: 10px;
+    display: block;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+/* Estilos da seção direita */
+.rightSide {
+    background-color: #ffffff;
+    color: #00A6A6;
+    padding: 40px;
+    width: 65%; 
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos do título na seção direita */
+.rightSide h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Estilos do grupo de inputs */
 .inputGroup {
-  position: relative;
-  display: flex;
-  align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+    width: 80%;
 }
 
-.icon {
-  position: absolute;
-  left: 10px;
-  color: #888888;
+/* Estilos do ícone nos inputs */
+.inputGroup .icon {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #888888;
 }
 
-/* Estilos para os campos de input */
-.input {
-  background-color: #ffffff;
-  border: none;
-  padding: 0.75rem 0.75rem 0.75rem 2.5rem;
-  border-radius: 16px;
-  font-size: 1rem;
-  width: 100%;
-  color: black;
+/* Estilos dos inputs */
+.inputGroup input {
+    width: 100%;
+    padding: 15px 15px 15px 40px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #F6F6F6;
+    color: #333333;
 }
 
-/* Estilos para o botão de Entrar */
-.button {
-  margin-top: 2rem;
-  padding: 0.81rem;
-  background-color: #00A6A6;
-  color: #fff;
-  font-size: 1.7em;
-  font-weight: bold;
-  border: none;
-  border-radius: 16px;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-  width: 57%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  margin-top: 50px;
-}
-
-.button:hover {
-  background-color: #00A6A6;
+/* Estilos do botão de cadastrar */
+.rightSide .btn {
+    background-color: #F49F0A;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-transform: uppercase;
+    width: 80%;
 }
