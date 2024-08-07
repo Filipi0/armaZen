@@ -48,7 +48,7 @@ function Login() {
                         className={styles.input}
                     />
                 </div>
-                
+                <a href="#" className={styles.forgotPassword}>Esqueci minha senha.</a>
                 <button type="submit" className={styles.button}>Entrar</button>
             </form>
         </div>
