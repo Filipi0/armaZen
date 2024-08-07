@@ -1,9 +1,8 @@
 @font-face {
     font-family: 'Poppins-Medium';
     src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
-    font-weight: 900;
     font-style: normal;
-  }
+}
 
 /* Estilos do contêiner principal */
 .container {
