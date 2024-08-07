@@ -32,7 +32,6 @@ function Cadastro() {
                 <p className = {styles.bemVindo}>Seja bem-vindo de volta!</p>
                 <p>Acesse sua conta agora mesmo!</p>
                 <button className={styles.btn}>ENTRAR</button>
-                <a href="#" className={styles.forgotPassword}>Esqueci minha senha.</a>
             </div>
             <div className={styles.rightSide}>
                 <h2>Crie sua conta</h2>
