@@ -1,9 +1,13 @@
-@font-face {
-    font-family: 'Poppins-Medium';
-    src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
-    font-style: normal;
+/*
+:root{
+    --cor1: #fffaff;
+    --cor2: #dfe3eb;
+    --cor3: #00a7e1;
+    --cor4: #003459;
+    --cor5: #00171f;
 }
-
+*/
+ 
 /* Estilos do contêiner principal */
 .container {
     display: flex;
@@ -14,8 +18,8 @@
 
 /* Estilos da seção esquerda */
 .leftSide {
-    background-color: #F49F0A;
-    color: #ffffff;
+    background-color: #00a7e1;
+    color: #fffaff;
     padding: 40px;
     width: 35%; 
     text-align: center;
@@ -23,7 +27,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-shadow: #33333328 1px 1px 3px;
+    text-shadow: #00171f28 1px 1px 3px;
 }
 
 /* Estilos do título na seção esquerda */
@@ -50,8 +54,8 @@
 
 /* Estilos da seção direita */
 .rightSide {
-    background-color: #ffffff;
-    color: #00A6A6;
+    background-color: #fffaff;
+    color: #003459;
     padding: 40px;
     width: 65%; 
     text-align: center;
@@ -82,7 +86,7 @@
     top: 50%;
     left: 10px;
     transform: translate(80%, -40%);
-    color: #888888;
+    color: #003459;
 }
 
 /* Estilos dos inputs */
@@ -93,8 +97,8 @@
     font-size: 1rem;
     border: none;
     border-radius: 8px;
-    background-color: #F3EBEB;
-    color: #333333;
+    background-color: #dfe3eb;
+    color: #003459;
 }
 
 .inputGroup input::placeholder{
@@ -117,7 +121,7 @@
 
 /* Estilos do botão na seção esquerda */
 .leftSide .btn {
-    background-color: #00A6A6;
+    background-color: #003459;
     width: 35%;
     margin-bottom: 16%;
 
@@ -125,7 +129,7 @@
 
 /* Estilos do botão de cadastrar */
 .rightSide .btn {
-    background-color: #F49F0A;
+    background-color: #00a7e1;
     width: 80%;
     margin-bottom: 28%;
 }

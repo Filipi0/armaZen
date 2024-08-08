@@ -27,8 +27,8 @@ function Cadastro() {
     return (
         <div className={styles.container}>
             <div className={styles.leftSide}>
-                <h1>SCENA-PNAE</h1>
-                <p>Comida fresca, Estoque em ordem, Qualidade em dia.</p>
+                <h1>ArmaZen</h1>
+                <p>Armazenamento com tranquilidade</p>
                 <p className = {styles.bemVindo}>Seja bem-vindo de volta!</p>
                 <p>Acesse sua conta agora mesmo!</p>
                 <button className={styles.btn}>ENTRAR</button>

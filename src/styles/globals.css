@@ -5,9 +5,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
 *{
   font-family: 'Poppins-Bold';
   margin: 0;
   padding: 0;
 }
+
 

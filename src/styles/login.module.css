@@ -1,8 +1,12 @@
-@font-face {
-  font-family: 'Poppins-Medium';
-  src: url('/fonts/Poppins-1/Poppins-Medium.ttf') format('truetype');
-  font-style: normal;
+/*
+:root{
+    --cor1: #fffaff;
+    --cor2: #dfe3eb;
+    --cor3: #00a7e1;
+    --cor4: #003459;
+    --cor5: #00171f;
 }
+*/
 
 /* Estilos para o container principal */
 .container {
@@ -10,13 +14,13 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #ffffff;
+  background-color: #dfe3eb;
 }
 
 /* Estilos gerais para o formulário */
 .loginBox{
   font-family: 'Poppins-Medium';
-  background-color: #F49F0A;
+  background-color: #00a7e1;
   border-radius: 8px;
   padding: 40px;
   width: 30%;
@@ -46,14 +50,14 @@
   position: absolute;
   transform: translateX(80%);
   left: 10px;
-  color: #888888;
+  color: #003459;
 }
 
 /* Estilos para os campos de input */
 .input {
   font-family: 'Poppins-Medium';
   font-weight: bold;
-  background-color: #F3EBEB;
+  background-color: #fff;
   border: none;
   margin: 10px 0px;
   padding: 10px 50px;
@@ -67,7 +71,7 @@
 .button {
   font-family: 'Poppins-Medium';
   background-color: #F3EBEB;
-  color: #00A6A6;
+  color: #003459;
   font-weight: bold;
   border: none;
   cursor: pointer;
@@ -82,8 +86,8 @@
 }
 
 .button:hover {
-  background-color: #00A6A6;
-  color: #F3EBEB;
+  background-color: #003459;
+  color: #dfe3eb;
 }
 
 /* Estilos do link "Esqueci minha senha" na seção esquerda */
@@ -94,9 +98,9 @@
   margin: 10px 0px;
   padding: 10px;
   font-size: 1rem;  animation-duration: 1s;
-  text-shadow: #33333328 1px 1px 3px;
+  text-shadow: #00171f28 1px 1px 3px;
 }
 
 .forgotPassword:hover{
-  color: #00A6A6;
+  color: #003459;
 } 
