@@ -39,7 +39,7 @@
 /* Contêiner dos botões dentro da seção esquerda */
 .buttonContainer {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Define duas colunas de tamanho igual */
+    grid-template-columns: 1fr 1fr;
     gap: 30px;
     width: 60%;
 }
@@ -68,7 +68,7 @@
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
-    grid-column: span 2; /* O botão ocupa duas colunas na grid */
+    grid-column: span 2; 
 }
 
 
@@ -77,4 +77,14 @@
     background-color: #00a7e1; /* Cor a definir */
     width: 35%;
     height: 100%;
+}
+
+.button:hover {
+    background-color: #003459;
+    color: #ffffff;
+}
+
+.button5:hover {
+    background-color: #003459;
+    color: #ffffff;
 }
