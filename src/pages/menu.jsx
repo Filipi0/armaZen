@@ -10,9 +10,10 @@ function Menu() {
                     <button className={styles.button}>Cadastrar Itens</button>
                     <button className={styles.button}>Movimentar Itens</button>
                     <button className={styles.button}>Relatório</button>
-                    <button className={styles.button}>Vizualizar Estoques</button>
+                    <button className={styles.button}>Visualizar Estoques</button>
                     <button className={styles.button5}>Cadastrar Usuários</button>
                 </div>
+
             </div>
             <div className={styles.rightSide}></div>
         </div>
