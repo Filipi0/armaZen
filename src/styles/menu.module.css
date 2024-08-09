@@ -71,14 +71,6 @@
     grid-column: span 2; 
 }
 
-
-/* Seção direita */
-.rightSide {
-    background-color: #00a7e1; /* Cor a definir */
-    width: 35%;
-    height: 100%;
-}
-
 .button:hover {
     background-color: #003459;
     transition: 0.5s;
@@ -87,4 +79,12 @@
 .button5:hover {
     background-color: #003459;
     transition: 0.5s;
+}
+
+
+/* Seção direita */
+.rightSide {
+    background-color: #00a7e1; /* Cor a definir */
+    width: 35%;
+    height: 100%;
 }
