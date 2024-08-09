@@ -81,10 +81,10 @@
 
 .button:hover {
     background-color: #003459;
-    color: #ffffff;
+    transition: 0.5s;
 }
 
 .button5:hover {
     background-color: #003459;
-    color: #ffffff;
+    transition: 0.5s;
 }
