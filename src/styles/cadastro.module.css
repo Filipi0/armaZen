@@ -9,7 +9,23 @@
 */
  
 /* Estilos do contêiner principal */
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('/fonts/Poppins-1/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+  
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
+    font-style: normal;
+}
+
 .container {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins-Bold';
     display: flex;
     width: 100%;
     height: 100vh; 
