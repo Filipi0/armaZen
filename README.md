@@ -1,4 +1,4 @@
-# SCENA-PNAE
+# ArmaZen
 
 **Grupo:** Filipi de Sousa Dantas e Maria Eduarda Luz
 
