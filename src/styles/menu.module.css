@@ -1,0 +1,80 @@
+
+/*
+:root{
+    --cor1: #fffaff;
+    --cor2: #dfe3eb;
+    --cor3: #00a7e1;
+    --cor4: #003459;
+    --cor5: #00a7e1;
+}
+*/
+
+/* Contêiner principal */
+.container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Seção esquerda onde ficam o título e os botões */
+.leftSide {
+    background-color: #fffaff;
+    padding: 40px;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Título dentro da seção esquerda */
+.title {
+    font-size: 3rem;
+    color: #00a7e1;
+    margin-bottom: 80px;
+    margin-right: 70%;
+    margin-top: -125px !important;
+    text-align: left;
+}
+
+/* Contêiner dos botões dentro da seção esquerda */
+.buttonContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 60%;
+}
+
+/* Estilização dos botões dentro da seção esquerda */
+.button {
+    background-color: #00a7e1;
+    color: #ffffff;
+    padding: 45px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Estilização do botão de cadastrar usuario */
+.button5 {
+    background-color: #00a7e1;
+    color: #ffffff;
+    padding: 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+     width: 210% !important; /*a gambiarra sksks*/
+}
+
+/* Seção direita */
+.rightSide {
+    background-color: #00a7e1; /* Cor a definir */
+    width: 35%;
+    height: 100%;
+}
