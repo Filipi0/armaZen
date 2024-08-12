@@ -15,13 +15,14 @@
     font-weight: 900;
     font-style: normal;
 }
-  
+
 @font-face {
     font-family: 'Poppins-Medium';
     src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
     font-style: normal;
 }
-  
+
+
 .container {
     background-color: #fffaff;
     padding: 0;
@@ -30,6 +31,7 @@
     display: flex;
     width: 100%;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Seção esquerda onde ficam o título e os botões */
@@ -85,7 +87,7 @@
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
-    grid-column: span 2; 
+    grid-column: span 2;
 }
 
 .button:hover {
@@ -103,7 +105,8 @@
 
 /* Seção direita */
 .rightSide {
-    background-color: #00a7e1; /* Cor a definir */
+    background-color: #00a7e1;
+    /* Cor a definir */
     width: 35%;
     height: 100%;
     margin: 0;

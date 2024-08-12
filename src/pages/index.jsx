@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/menu.module.css';
-import Header from './componentes/header';
+import Header from './components/header.jsx';
 
 export default function Menu() {
     return (
