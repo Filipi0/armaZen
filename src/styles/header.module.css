@@ -11,12 +11,13 @@
 /* Header */
 .header {
   background-color: #00a7e1;
+  color: #fffaff;
   width: 100%; 
   height: 60px; 
   padding: 10px 20px; 
   box-sizing: border-box;
   display: flex; 
-  justify-content: center; 
+  justify-content: space-between; 
   align-items: center; 
   position: fixed; 
   top: 0;
@@ -26,11 +27,12 @@
 
 
 /* Título no Header */
-.header h1 {
-  color: var(--cor3);
+.logo a{
+  color: #fffaff;
   font-family: 'Poppins-Bold';
   font-size: 1.8rem;
   margin: 0;
+  text-decoration: none;
 }
 
 /* Navegação */
