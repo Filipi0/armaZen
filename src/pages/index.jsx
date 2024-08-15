@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from '../styles/menu.module.css';
-import Header from './components/header.jsx';
+import Footer from './components/footer.jsx';
 
 export default function Menu() {
     return (
         <div className={styles.container}>
-            <Header></Header>
             <div className={styles.leftSide}>
                 <h1 className={styles.title}>ArmaZen</h1>
                 <div className={styles.buttonContainer}>
@@ -18,6 +17,7 @@ export default function Menu() {
 
             </div>
             <div className={styles.rightSide}></div>
+            <Footer></Footer>
         </div>
     );
 }

@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/login.module.css';
+import Footer from './components/footer.jsx';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -24,6 +25,10 @@ export default function Login() {
 
     return (
         <div className={styles.container}>
+            <div className={styles.leftside}>
+                <h1 className={styles.title}>ArmaZen</h1>
+                <h2 className={styles.subtitle}>Armazenamento com tranquilidade</h2>
+            </div>
             <div className={styles.loginBox}>
                 <form onSubmit={handleSubmit} className={styles.form}>
                     <h1 className={styles.LOGIN}>LOGIN</h1>
@@ -53,6 +58,7 @@ export default function Login() {
                     <button type="submit" className={styles.button}>Entrar</button>
                 </form>
             </div>
+            <Footer></Footer>
         </div>
     );
 }

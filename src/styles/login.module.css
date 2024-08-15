@@ -11,10 +11,23 @@
 /* Estilos para o container principal */
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   height: 100vh;
   background-color: #dfe3eb;
+}
+
+/*Estilos para o lado esquerdo*/
+.leftside{
+  height: 70%;
+  color: #003459;
+  font-family: 'Poppins-Medium';
+}
+
+.title{
+  font-size: 4rem;
+  font-weight: bolder;
+  color: #00a7e1;
 }
 
 /* Estilos gerais para o formulário */
