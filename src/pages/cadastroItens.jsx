@@ -8,10 +8,10 @@ import Footer from './components/footer.jsx';
 function CadastroItens() {
     return (
         <div>
-            <Header/>
+            <Header />
             <div>
                 <h2 className={styles.h2}>Cadastro de Itens</h2>
-            
+
                 <main className={styles.container}>
                     <section className={styles.formSection}>
                         <form>
