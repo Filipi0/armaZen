@@ -127,3 +127,40 @@
     flex-direction: column;
     gap: 20px;
 }
+
+/* Estilo básico do select */
+.select {
+    width: 80%;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 1rem;
+    color: #003459;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23003459" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}
+
+/* Ajuste para o texto ao focar */
+.select:focus {
+    outline: none;
+    color: #003459;
+}
+
+.select:hover {
+    color: #003459; 
+}
+
+/* Estilo para o texto das opções */
+.select option {
+    color: #003459; 
+    background-color: #ffffff; 
+}
+
+/* Estilo para o texto selecionado */
+.select:focus option:checked {
+    color: #003459;
+}

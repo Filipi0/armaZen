@@ -42,8 +42,14 @@ function CadastroItens() {
                                 </div>
                                 <div className={styles.formGroup}>
                                     <label htmlFor="unidade-medida">Unidade de Medida</label>
-                                    <input type="text" id="unidade-medida" placeholder="Caixa" />
+                                    <select id="unidade-medida" name="unidade-medida" className={styles.select}>
+                                        <option value="caixa">Caixa</option>
+                                        <option value="unidade">Unidade</option>
+                                        <option value="litro">Litro</option>
+                                        <option value="metro">Metro</option>
+                                    </select>
                                 </div>
+
                                 <div className={styles.formGroup}>
                                     <label htmlFor="validade">Data de Validade</label>
                                     <input type="text" id="validade" name="validade" placeholder="Opcional" />
