@@ -26,10 +26,10 @@
 .h2 {
     color: #003459;
     font-family: 'Poppins-Medium', sans-serif;
-    font-size: 2.5rem; /* Defina um tamanho de fonte adequado */
+    font-size: 2.5rem;
     line-height: 1.5;
     margin: 0;
-    margin-top: 90px; /* Adicione margem superior para afastar do header */
+    margin-top: 90px; 
     text-align: center; 
     margin-right: 40%; 
 }
@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: auto; /* Ajuste a altura para evitar overflow */
+    height: auto; 
     padding: 20px;
     margin-top: 0px; 
 }
