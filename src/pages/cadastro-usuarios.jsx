@@ -54,7 +54,7 @@ function CadastroUsuarios() {
                 </select>
               </div>
               <div className={styles.formGroup}>
-                <label htmlFor="instituicao">Instituição</label>
+                <label htmlFor="instituicao">Instituição/Empresa</label>
                 <input type="text" id="instituicao" name="instituicao" />
               </div>
             </div>
