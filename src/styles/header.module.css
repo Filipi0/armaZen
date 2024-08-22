@@ -9,6 +9,12 @@
 */
 
 /* Header */
+@font-face {
+  font-family: 'Poppins-regular';
+  src: url('/fonts/Poppins-1/Poppins-SemiBold.ttf') format('truetype');
+  font-style: normal;
+}
+
 .header {
   background-color: #00a7e1;
   color: #fffaff;
@@ -46,13 +52,13 @@
 
 /* Estilos para cada item da navegação */
 .navItem {
-  font-family: 'Poppins-Medium';
   font-size: 1.2rem;
 }
 
 /* Estilos para os links */
 .navItem a {
   color: var(--cor3);
+  font-family: 'Poppins-regular';
   text-decoration: none;
 }
 
