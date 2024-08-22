@@ -1,12 +1,22 @@
+@font-face {
+    font-family: 'Poppins-regular';
+    src: url('/fonts/Poppins-1/Poppins-SemiBold.ttf') format('truetype');
+    font-style: normal;
+}
+
 .footer{
     width: 100%;
     background-color: #ffffff;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    border-top: 3px solid #cacaca;
+    border-top: 2px solid #cacaca;
     color: #00a7e1;
+}
+
+.text{
+    font-family: 'Poppins-regular';
 }
