@@ -13,9 +13,8 @@
 
 @font-face {
   font-family: 'Poppins-regular';
-  src: url('/fonts/Poppins-1/Poppins-Medium.ttf') format('truetype');
+  src: url('/fonts/Poppins-1/Poppins-SemiBold.ttf') format('truetype');
   font-style: normal;
-
 }
 
 *{
