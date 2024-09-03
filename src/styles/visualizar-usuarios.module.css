@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('/fonts/Poppins-1/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Estilo do título */
+.h2 {
+    color: #00a7e1;
+    font-family: 'Poppins-Bold', sans-serif;
+    font-size: 2.5rem;
+    text-align: left; 
+    margin-top: 130px;
+    margin-left: 10rem;
+}
+
+/* Container principal */
+.container {
+    padding: 20px;
+    margin-top: 5px;
+}
+
+/* Seção de filtros */
+.filterSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+/* Estilo para o input de pesquisa */
+.searchContainer {
+    flex: 2;
+    margin-right: 30px;
+    width: 70%;
+}
+
+.searchLabel {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Poppins-Medium', sans-serif;
+    font-size: 1rem;
+    color: #003459;
+}
+
+.searchInputContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.searchInputContainer input {
+    width: 100%;
+    padding: 10px 40px 10px 20px;
+    border-radius: 20px;
+    border: 2px solid #00a7e1;
+    font-size: 1rem;
+}
+
+.searchIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo para o campo de filtro */
+.filterContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.filterLabel {
+    margin-bottom: 5px;
+    font-family: 'Poppins-Medium', sans-serif;
+    font-size: 1rem;
+    color: #003459;
+}
+
+.filterSelect {
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #00a7e1;
+    background-color: #ffffff;
+    font-size: 1rem;
+    color: #003459;
+    width: 100%;
+}
