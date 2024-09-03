@@ -6,5 +6,5 @@ import CadastroUsuarios from './cadastro-usuarios.jsx';
 
 
 export default function App({ Component, pageProps }) {
-    return <CadastroUsuarios />;
+    return <CadastroItens />;
 }
