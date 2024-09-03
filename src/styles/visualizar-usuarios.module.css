@@ -58,9 +58,14 @@
     font-size: 1rem;
 }
 
+.searchInputContainer input::placeholder {
+    color: #003459;
+}
+
 .searchIcon {
+    color: #00a7e1;
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 1.2rem;
@@ -90,4 +95,43 @@
     font-size: 1rem;
     color: #003459;
     width: 100%;
+}
+
+/* Seção de cabeçalhos */
+.headerSection {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 15rem;
+    margin-right: 15rem;
+}
+
+.headerItem {
+    flex: 1;
+    font-size: 1.2rem;
+    font-family: 'Poppins-Medium', sans-serif;
+    color: #003459;
+    padding: 0 10px;
+}
+
+/* Seção da tabela */
+.tableSection {
+    margin-top: 10px;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    border: 2px solid #00a7e1;
+}
+
+.userTable {
+    width: 100%;
+    font-family: 'Poppins-Medium', sans-serif;
+}
+
+.userTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 2px solid #00a7e1;
+    background-color: #ffffff;
+    color: #00171f;
+    font-size: 1rem;
 }
