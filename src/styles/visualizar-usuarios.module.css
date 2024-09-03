@@ -120,11 +120,11 @@
     margin-left: 15rem;
     margin-right: 15rem;
     border: 2px solid #00a7e1;
+    border-radius: 6px;
 }
 
 .userTable {
     width: 100%;
-    font-family: 'Poppins-Medium', sans-serif;
 }
 
 .userTable td {
@@ -134,4 +134,27 @@
     background-color: #ffffff;
     color: #00171f;
     font-size: 1rem;
+}
+
+/* Seção de ação */
+.actionSection {
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+    margin-right: 15rem;
+    margin-top: 30px;
+}
+
+/* Estilo do botão de excluir */
+.btnExcluir {
+    background-color: #00a7e1;
+    color: #ffffff;
+    padding: 10px 60px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btnExcluir:hover {
+    background-color: #003459;
 }

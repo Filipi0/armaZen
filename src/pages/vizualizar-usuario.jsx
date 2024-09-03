@@ -9,7 +9,11 @@ function VisualizarUsuarios() {
     console.log('Pesquisar usuário...');
   };
 
-  // Dados fictícios
+  const handleDelete = () => {
+    console.log('Excluir usuário...');
+  };
+
+  // Dados fictícios de usuários
   const usuarios = [
     { nome: 'João Silva', email: 'joao.silva@example.com', permissao: 'Administrador' },
     { nome: 'Maria Oliveira', email: 'maria.oliveira@example.com', permissao: 'Usuário' },
@@ -64,6 +68,12 @@ function VisualizarUsuarios() {
               </tbody>
             </table>
           </section>
+
+          <div className={styles.actionSection}>
+            <button type="button" className={styles.btnExcluir} onClick={handleDelete}>
+              Excluir Usuário
+            </button>
+          </div>
         </main>
       </div>
       <Footer />
