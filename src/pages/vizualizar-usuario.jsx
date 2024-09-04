@@ -19,6 +19,10 @@ function VisualizarUsuarios() {
     { nome: 'Maria Oliveira', email: 'maria.oliveira@example.com', permissao: 'Usuário' },
     { nome: 'Pedro Santos', email: 'pedro.santos@example.com', permissao: 'Usuário' },
     { nome: 'Ana Costa', email: 'ana.costa@example.com', permissao: 'Administrador' },
+    { nome: 'José Pereira', email: 'jose@gmail.com', permissao: 'Usuário' },
+    { nome: 'Paula Souza', email: 'paulo.@gmail.com', permissao: 'Usuário' },
+    { nome: 'Carlos Lima', email: 'carlosLima@gmail.com', permissao: 'Administrador' },
+    { nome: 'Filipi Dantas', email: 'filipiD@gmail.com', permissao: 'Usuário' },
   ];
 
   return (
@@ -31,7 +35,7 @@ function VisualizarUsuarios() {
             <div className={styles.searchContainer}>
               <label htmlFor="search" className={styles.searchLabel}>Pesquisar</label>
               <div className={styles.searchInputContainer}>
-                <input type="text" id="search" name="search" placeholder="Digite o nome do usuário..." />
+                <input type="text" id="search" name="search" />
                 <button type="button" className={styles.searchIcon} onClick={handleSearch}>
                   <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24" fill="#00a7e1">
                     <path d="M796 1006 558 768q-33 28-74 42t-84 14q-130 0-220-90T90 514q0-130 90-220t220-90q130 0 220 90t90 220q0 44-14 84t-42 74l238 238-96 96ZM400 722q83 0 141.5-58.5T600 522q0-83-58.5-141.5T400 322q-83 0-141.5 58.5T200 522q0 83 58.5 141.5T400 722Z"/>
@@ -51,7 +55,7 @@ function VisualizarUsuarios() {
 
           <section className={styles.headerSection}>
             <div className={styles.headerItem}>Nome</div>
-            <div className={styles.headerItem}>Email</div>
+            <div className={styles.headerItem}>Email do usuário</div>
             <div className={styles.headerItem}>Permissão</div>
           </section>
 

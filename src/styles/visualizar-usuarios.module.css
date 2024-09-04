@@ -53,7 +53,7 @@
 .searchInputContainer input {
     width: 100%;
     padding: 10px 40px 10px 20px;
-    border-radius: 20px;
+    border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
 }
@@ -89,7 +89,7 @@
 
 .filterSelect {
     padding: 10px;
-    border-radius: 20px;
+    border-radius: 30px;
     border: 2px solid #00a7e1;
     background-color: #ffffff;
     font-size: 1rem;
@@ -121,19 +121,52 @@
     margin-right: 15rem;
     border: 2px solid #00a7e1;
     border-radius: 6px;
+    max-height: 235px; 
+    overflow-y: auto; 
 }
 
 .userTable {
     width: 100%;
+    border-collapse: collapse; /* Junta as bordas da tabela */
 }
 
 .userTable td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 2px solid #00a7e1;
+    border-bottom: 2px solid #D9D9D9;
     background-color: #ffffff;
     color: #00171f;
     font-size: 1rem;
+}
+
+.userTable th {
+    background-color: #00a7e1; /* Cabeçalho da tabela com cor */
+    color: #ffffff;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 1.2rem;
+    position: sticky; /* Fixação do cabeçalho */
+    top: 0;
+    z-index: 1;
+}
+
+/* Estilo para a barra de rolagem dentro da tabela */
+.tableSection::-webkit-scrollbar {
+    width: 12px;
+}
+
+.tableSection::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.tableSection::-webkit-scrollbar-thumb {
+    background-color: #00a7e1;
+    border-radius: 20px;
+    border: 3px solid #f1f1f1;
+}
+
+.tableSection::-webkit-scrollbar-thumb:hover {
+    background-color: #003459;
 }
 
 /* Seção de ação */
