@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import styles from '../styles/menu.module.css';
+import styles from '../styles/index.module.css';
 import Footer from './components/footer.jsx';
 
 export default function Menu() {
@@ -22,7 +22,9 @@ export default function Menu() {
             <div className={styles.leftSide}>
                 <h1 className={styles.title}>ArmaZen</h1>
                 <div className={styles.buttonContainer}>
-                    <button className={styles.button}>Cadastrar Itens</button>
+                  <Link href={'./cadastroItens'}>
+                  <button className={styles.button}>Cadastrar Itens</button>
+                  </Link>
                     <button className={styles.button}>Movimentar Itens</button>
                     <button className={styles.button}>Relatório</button>
                     <button className={styles.button}>Visualizar Estoques</button>
