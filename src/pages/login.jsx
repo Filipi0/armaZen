@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/router'; // Certifique-se de importar o useRouter
+import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/login.module.css';
@@ -28,11 +28,11 @@ export default function Login() {
 
         if (response.status === 200) {
             localStorage.setItem('authenticated', 'true');
-            router.push('/index'); // Redirecionar para a página home
-            console.log('Redirecionando para /home...');
+            router.push('/'); // Redirecionar para a página principal
         } else {
             setError(data.message);
         }
+        
     }
 
     return (

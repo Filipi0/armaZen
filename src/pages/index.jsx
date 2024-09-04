@@ -13,7 +13,7 @@ export default function Menu() {
     const isAuthenticated = localStorage.getItem('authenticated');
 
     if (isAuthenticated !== 'true') {
-      router.replace('/login'); // Redirecionar para a página de login
+      router.replace('/index'); // Redirecionar para a página de login
     }
   }, [router]);
 
@@ -23,9 +23,13 @@ export default function Menu() {
         <h1 className={styles.title}>ArmaZen</h1>
         <div className={styles.buttonContainer}>
           <Link className={styles.Link} href="cadastro-itens">
-            <span className={styles.button}>Cadastrar Itens</span>
+            <button className={styles.button}>Cadastrar Itens</button>
           </Link>
-          <button className={styles.button}>Movimentar Itens</button>                    <button className={styles.button}>Relatório</button>
+
+          <Link className={styles.Link} href="vizualizar-estoques">
+          <button className={styles.button}>Movimentar Itens</button>      
+          </Link>
+          <button className={styles.button}>Relatório</button>
           <button className={styles.button}>Visualizar Estoques</button>
           <button className={styles.button}>Cadastrar Usuários</button>
           <button className={styles.button}>Visualizar Usuários</button>
