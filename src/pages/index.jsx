@@ -22,7 +22,7 @@ export default function Menu() {
             <div className={styles.leftSide}>
                 <h1 className={styles.title}>ArmaZen</h1>
                 <div className={styles.buttonContainer}>
-                  <Link href={'./cadastroItens'}>
+                  <Link className={styles.Link} href={'./cadastroItens'}> 
                   <button className={styles.button}>Cadastrar Itens</button>
                   </Link>
                     <button className={styles.button}>Movimentar Itens</button>
