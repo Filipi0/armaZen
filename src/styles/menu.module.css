@@ -76,19 +76,6 @@
     text-align: center;
 }
 
-/* Estilização do botão de cadastrar usuário */
-.button5 {
-    background-color: #00a7e1;
-    color: #ffffff;
-    padding: 45px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: center;
-    grid-column: span 2;
-}
 
 .button:hover {
     background-color: #003459;

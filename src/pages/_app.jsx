@@ -7,5 +7,5 @@ import VisualizarUsuarios from "./vizualizar-usuario.jsx";
 
 
 export default function App({ Component, pageProps }) {
-    return <VisualizarUsuarios />;
+    return <Menu />;
 }

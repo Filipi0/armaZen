@@ -10,7 +10,7 @@ export default function handler(req, res) {
     const adminUser = JSON.parse(jsonData);
 
     if (email === adminUser.email && senha === adminUser.senha) {
-      return res.status(200).json({ message: 'Autenticado com sucesso' });
+      return res.status(200).json({ message: 'Autenticado com sucesso', redirect: '/home' });
     } else {
       return res.status(401).json({ message: 'Credenciais inválidas' });
     }
