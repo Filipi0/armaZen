@@ -141,6 +141,11 @@
     font-size: 1rem;
 }
 
+/* Estilo da linha selecionada */
+.selectedRow {
+    background-color: #691111; /* Cor de fundo para destacar a linha */
+  }
+  
 /* Estilo para a barra de rolagem dentro da tabela */
 .tableSection::-webkit-scrollbar {
     width: 12px;
