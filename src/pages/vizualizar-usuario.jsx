@@ -54,9 +54,9 @@ function VisualizarUsuarios() {
           </section>
 
           <section className={styles.headerSection}>
-            <div className={styles.headerItem}>Nome</div>
-            <div className={styles.headerItem}>Email do usuário</div>
-            <div className={styles.headerItem}>Permissão</div>
+            <div className={styles.headerItem1}>Nome</div>
+            <div className={styles.headerItem2}>Email do usuário</div>
+            <div className={styles.headerItem3}>Permissão</div>
           </section>
 
           <section className={styles.tableSection}>
