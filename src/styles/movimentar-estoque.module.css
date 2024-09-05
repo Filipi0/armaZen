@@ -1,0 +1,67 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('/fonts/Poppins-1/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+/* Estilo do título */
+.h2 {
+    color: #00a7e1;
+    font-size: 2.5rem;
+    text-align: left; 
+    margin-top: 130px;
+    margin-left: 15rem;
+}
+
+/* Container principal */
+.container {
+    padding: 20px;
+    margin-top: 5px;
+}
+
+/* Seção de pesquisa */
+.searchSection {
+    margin-left: 20rem;
+    margin-right: 20rem;
+    margin-top: 20px;
+}
+
+/* Estilo para o label da pesquisa */
+.searchLabel {
+    display: block;
+    font-size: 1.2rem;
+    color: #003459;
+    margin-bottom: 10px;
+}
+
+/* Estilo do input de pesquisa */
+.searchInputContainer {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.searchInput {
+    width: 100%;
+    max-width: 1000px;
+    padding: 10px 40px 10px 20px;
+    border-radius: 30px;
+    border: 2px solid #00a7e1;
+    font-size: 1rem;
+}
+
+.searchInput::placeholder {
+    color: #003459;
+}
+
+/* Estilo do ícone de pesquisa */
+.searchIcon {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
