@@ -54,7 +54,7 @@
 }
 
 /* Contêiner dos botões dentro da seção esquerda */
-.buttonContainer {
+.buttonContainer{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
@@ -62,6 +62,7 @@
     min-width: 60%;
     margin: 20px;
 }
+
 
 /* Estilização dos botões dentro da seção esquerda */
 .button {
@@ -76,19 +77,6 @@
     text-align: center;
 }
 
-/* Estilização do botão de cadastrar usuário */
-.button5 {
-    background-color: #00a7e1;
-    color: #ffffff;
-    padding: 45px;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    text-align: center;
-    grid-column: span 2;
-}
 
 .button:hover {
     background-color: #003459;

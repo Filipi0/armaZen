@@ -50,6 +50,7 @@
     margin-bottom: 5%;
 }
 
+
 /* Layout das linhas do formulário */
 .formRow {
     display: flex;
@@ -86,7 +87,6 @@
     box-sizing: border-box;
 }
 
-/* Estilos específicos para o botão de cadastrar */
 /* Estilos do campo do botão de cadastrar*/
 .formRow2 {
     display: flex;
@@ -112,6 +112,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid #00a7e1;
 }
 
 .btn:hover {

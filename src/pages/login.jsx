@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import { useRouter } from 'next/router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/login.module.css';
@@ -9,18 +10,29 @@ import Footer from './components/footer.jsx';
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const router = useRouter(); // Inicialize o hook do router
+    const [error, setError] = useState(null);
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
 
-        const usuario = {
-            email,
-            senha
-        };
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, senha }),
+        });
 
-        console.log('Dados do usuário:', usuario);
+        const data = await response.json();
 
-        window.location.href = 'http://www.google.com.br';
+        if (response.status === 200) {
+            localStorage.setItem('authenticated', 'true');
+            router.push('/'); // Redirecionar para a página principal
+        } else {
+            setError(data.message);
+        }
+        
     }
 
     return (
@@ -32,7 +44,6 @@ export default function Login() {
             <div className={styles.loginBox}>
                 <form onSubmit={handleSubmit} className={styles.form}>
                     <h1 className={styles.LOGIN}>LOGIN</h1>
-                
                     <div className={styles.inputGroup}>
                         <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
                         <input
@@ -43,7 +54,6 @@ export default function Login() {
                             className={styles.input}
                         />
                     </div>
-                    
                     <div className={styles.inputGroup}>
                         <FontAwesomeIcon icon={faLock} className={styles.icon} />
                         <input
@@ -54,6 +64,7 @@ export default function Login() {
                             className={styles.input}
                         />
                     </div>
+                    {error && <p style={{ color: 'red' }}>{error}</p>}
                     <a href="#" className={styles.forgotPassword}>Esqueci minha senha.</a>
                     <button type="submit" className={styles.button}>Entrar</button>
                 </form>
@@ -62,4 +73,3 @@ export default function Login() {
         </div>
     );
 }
-

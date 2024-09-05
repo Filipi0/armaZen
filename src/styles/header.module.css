@@ -57,7 +57,7 @@
 
 /* Estilos para os links */
 .navItem a {
-  color: var(--cor3);
+  color: #ffffff;
   font-family: 'Poppins-regular';
   text-decoration: none;
 }
