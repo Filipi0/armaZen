@@ -10,13 +10,13 @@
     color: #00a7e1;
     font-size: 2.5rem;
     text-align: left; 
-    margin-top: 90px;
+    margin-top: 80px;
     margin-left: 9rem;
 }
 
 /* Container principal */
 .container {
-    padding: 20px;
+    padding: 5px;
 }
 
 /* Seção de filtros */
@@ -37,7 +37,6 @@
 
 .searchLabel {
     display: block;
-    margin-bottom: 5px;
     font-size: 1rem;
     color: #003459;
 }
@@ -50,7 +49,7 @@
 
 .searchInputContainer input {
     width: 100%;
-    padding: 10px 40px 10px 20px;
+    padding: 6px 14px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
@@ -63,8 +62,8 @@
 .searchIcon {
     color: #00a7e1;
     position: absolute;
-    right: 15px;
-    top: 50%;
+    right: 16px;
+    top: 55%;
     transform: translateY(-50%);
     font-size: 1.2rem;
     background-color: transparent;
@@ -80,13 +79,12 @@
 }
 
 .filterLabel {
-    margin-bottom: 5px;
     font-size: 1rem;
     color: #003459;
 }
 
 .filterSelect {
-    padding: 10px;
+    padding: 6px 14px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     background-color: #ffffff;
@@ -104,14 +102,14 @@
 .headerSection {
     display: grid;
     grid-template-areas: 'item1 item1 item1 item1 item1 item1 item1 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item3 item3 item3 item3 item3 item3';
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 9rem;
     margin-right: 9rem;
 }
 
 .headerItem1, .headerItem2, .headerItem3 {
     flex: 1;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: 'Poppins-Medium', sans-serif;
     color: #003459;
     padding: 0 10px;

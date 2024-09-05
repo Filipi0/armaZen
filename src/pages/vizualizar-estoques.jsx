@@ -108,12 +108,12 @@ function VisualizarEstoques() {
           </section>
 
           <section className={styles.headerSection}>
-            <div className={styles.headerItem}>Código</div>
-            <div className={styles.headerItem}>Nome do item</div>
-            <div className={styles.headerItem}>Fornecedor</div>
-            <div className={styles.headerItem}>Uni. Medida</div>
-            <div className={styles.headerItem}>Qtd</div>
-            <div className={styles.headerItem}>Data de validade</div>
+            <div className={styles.headerItem1}>Código</div>
+            <div className={styles.headerItem2}>Nome do item</div>
+            <div className={styles.headerItem3}>Fornecedor</div>
+            <div className={styles.headerItem4}>Uni. Medida</div>
+            <div className={styles.headerItem5}>Qtd</div>
+            <div className={styles.headerItem6}>Data de validade</div>
           </section>
 
           <section className={styles.tableSection}>
