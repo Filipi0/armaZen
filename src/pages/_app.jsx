@@ -6,6 +6,7 @@ import CadastroUsuarios from './cadastro-usuarios.jsx';
 import VisualizarUsuarios from "./vizualizar-usuario.jsx";
 import VisualizarEstoques from "./vizualizar-estoques.jsx";
 import MovimentarEstoque from "./movimentar-estoque.jsx";
+import RecuperaSenha from "./recupera-senha.jsx";
 
 
 export default function App({ Component, pageProps }) {

@@ -1,0 +1,108 @@
+/* Estilo para o container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+}
+
+/* Estilo do card */
+.card {
+    background-color: #00a7e1;
+    border-radius: 16px;
+    padding: 40px;
+    max-width: 350px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo do título */
+.title {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-family: 'Poppins-Bold';
+}
+
+/* Estilo do formulário */
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo dos grupos de input */
+.inputGroup {
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+/* Estilo das labels */
+.label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #ffffff;
+    margin-bottom: 7px;
+    display: block;
+    text-align: left; 
+}
+
+
+/* Estilo do input */
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 40px 10px 40px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    color: #003459;
+    box-sizing: border-box;
+}
+
+/* Estilo dos ícones */
+.icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+}
+
+.iconEye {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Estilo do botão de registro */
+.submitButton {
+    margin-top: 30px;
+    background-color: #ffffff;
+    color: #00a7e1;
+    border: none;
+    border-radius: 30px;
+    padding: 7px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    width: 100%;
+    
+}
+
+.submitButton:hover {
+    transition: 0.4s;
+    background-color: #003459;
+    color: floralwhite;
+}
