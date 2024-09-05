@@ -8,6 +8,7 @@
     margin: 16px auto;
     color: #00171f;
     font-family: 'Poppins-Medium';
+    transition: 0.5s;
 }
 
 .expandedCard {
@@ -16,6 +17,12 @@
 
 .collapsedCard {
     padding: 16px;
+}
+
+.info{
+    border: 2px solid #00a7e1;
+    padding: 0 16px 16px 16px;
+    border-radius: 8px;
 }
 
 .button {
@@ -27,6 +34,13 @@
     padding: 8px 16px;
     cursor: pointer;
     margin-top: 5px;
+    font-size: 1rem;
+}
+
+.button:hover{
+    background-color: #00a7e1;
+    color: #fffaff;
+    transition: 0.5s;
 }
   
 .list {
@@ -34,4 +48,9 @@
     padding: 0;
     text-align: left;
     margin: 16px 0;
+}
+
+.list li{
+    border-bottom: 2px solid #d9d9d9;
+    padding-bottom: 5px;
 }

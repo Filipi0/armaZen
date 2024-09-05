@@ -14,14 +14,16 @@ const Card = ({ titleCollapsed, count, items }) => {
         <div className={styles.expandedCard}>
           <h2>{titleCollapsed}</h2>
           <h1>{count}</h1>
-          <ul className={styles.list}>
-            {items.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-          <button onClick={toggleExpand} className={styles.button}>
-            Ver menos
-          </button>
+          <div className={styles.info}>
+                <ul className={styles.list}>
+                {items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                ))}
+                </ul>
+                <button onClick={toggleExpand} className={styles.button}>
+                Ver menos
+                </button>
+          </div>
         </div>
       ) : (
         <div className={styles.collapsedCard}>
