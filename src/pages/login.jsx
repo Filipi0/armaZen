@@ -65,7 +65,7 @@ export default function Login() {
                             className={styles.input}
                         />
                     </div>
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
+                    {error && <p style={{ color: '#003459', marginLeft: '10px', marginTop: '5px' }}>{error}</p>}
                     <Link className={styles.link1} href="recupera-senha">
                     <button className={styles.forgotPassword}>Esqueci minha senha.</button>
                     </Link>

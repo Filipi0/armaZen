@@ -9,12 +9,18 @@
 */
 
 /* Estilos para o container principal */
+@font-face {
+  font-family: 'Poppins-Medium';
+  src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
 .container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   height: 100vh;
-  background-color: #dfe3eb;
+  background-color: #fffaff;
 }
 
 /*Estilos para o lado esquerdo*/
@@ -47,7 +53,7 @@
   text-shadow: #33333328 1px 1px 3px;
   font-size: 2.6rem;
   margin-bottom: 30px;
-  color: #ffffff;
+  color: #fffaff;
   display: flex;
   justify-content: center;
 }
@@ -70,7 +76,7 @@
 .input {
   font-family: 'Poppins-Medium';
   font-weight: bold;
-  background-color: #fff;
+  background-color: #fffaff;
   border: none;
   margin: 10px 0px;
   padding: 10px 50px;
@@ -83,7 +89,7 @@
 /* Estilos para o botão de Entrar */
 .button {
   font-family: 'Poppins-Medium';
-  background-color: #F3EBEB;
+  background-color: #fffaff;
   color: #003459;
   font-weight: bold;
   border: none;
@@ -100,7 +106,7 @@
 
 .button:hover {
   background-color: #003459;
-  color: #dfe3eb;
+  color: #fffaff;
   transition: 0.5s;
 }
 
@@ -109,7 +115,8 @@
   background-color: transparent;
   text-decoration: none;
   display: block;
-  color: #ffffff;
+  font-family: 'Poppins-Medium';
+  color: #fffaff;
   margin: 10px 0px;
   padding: 10px;
   font-size: 1rem;

@@ -1,0 +1,37 @@
+.card {
+    border-radius: 8px;
+    padding: 16px;
+    width: 90%;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: #f9f9f9;
+    margin: 16px auto;
+    color: #00171f;
+    font-family: 'Poppins-Medium';
+}
+
+.expandedCard {
+    padding: 16px;
+}
+
+.collapsedCard {
+    padding: 16px;
+}
+
+.button {
+    background-color: #fffaff;
+    color: #00a7e1;
+    border: 2px solid #00a7e1;
+    width: 100%;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+  
+.list {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin: 16px 0;
+}
