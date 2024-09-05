@@ -28,7 +28,7 @@ export default function Menu() {
             <button className={styles.button}>Cadastrar Itens</button>
           </Link>
 
-          <Link href="/vizualizar-estoques" className={styles.link}>
+          <Link href="/movimentar-estoque" className={styles.link}>
             <button className={styles.button}>Movimentar Itens</button>
           </Link>
 
@@ -44,7 +44,9 @@ export default function Menu() {
             <button className={styles.button}>Visualizar Usuários</button>
           </Link>
 
+          <Link href="/relatorios" className={styles.link}>
           <button className={styles.button}>Relatório</button>
+          </Link>
         </div>
 
       </div>

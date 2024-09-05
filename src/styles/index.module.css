@@ -60,6 +60,7 @@
     height: 80%;
     min-width: 60%;
     margin: 20px;
+    margin-top: 50px;
 }
 
 /* estilo do Link */
@@ -68,7 +69,7 @@
     width: 100%; 
 }
 
-
+/* estiilo do botão */
 .button {
     background-color: #00a7e1;
     color: #ffffff;
@@ -84,7 +85,7 @@
 
 .button:hover {
     background-color: #003459;
-    color: #00a7e1;
+    color: #ffffff;
     transition: 0.5s;
 }
 
