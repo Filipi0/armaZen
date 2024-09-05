@@ -6,21 +6,17 @@
 
 .footer{
     width: 100%;
-    background-color: #ffffff;
+    background-color: #fffaff;
     position: fixed;
     bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 40px;
-    border-top: 2px solid #cacaca;
     color: #00a7e1;
+    box-shadow: -4px -1px 9px #d9d9d9;
 }
 
 .text{
     font-family: 'Poppins-regular';
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> fe43650f28cc7021ddde0ea1dfcbd2c8ea5acc7e
