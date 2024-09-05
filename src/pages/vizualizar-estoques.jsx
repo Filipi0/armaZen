@@ -88,7 +88,7 @@ function VisualizarEstoques() {
                 </button>
               </div>
             </div>
-            <div className={styles.filterContainer}>
+            <div>
               <label htmlFor="filter" className={styles.filterLabel}>Filtrar por</label>
               <select
                 id="filter"

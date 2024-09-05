@@ -8,5 +8,5 @@ import VisualizarEstoques from "./vizualizar-estoques.jsx";
 
 
 export default function App({ Component, pageProps }) {
-    return <CadastroUsuarios />;
+    return <VisualizarEstoques />;
 }
