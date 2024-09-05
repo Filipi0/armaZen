@@ -53,8 +53,10 @@ export default function Menu() {
       <Card
         titleCollapsed="Itens perto do vencimento"
         count={0}
-        items={[]}
-      />
+        items={[
+            'Não há itens perto do vencimento'
+          ]}      
+        />
       <Card
         titleCollapsed="Itens prestes a esgotar"
         count={5}
