@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 import styles from '../styles/login.module.css';
 import Footer from './components/footer.jsx';
+import Link from 'next/link';
 
 export default function Login() {
     const [email, setEmail] = useState('');
@@ -65,7 +66,9 @@ export default function Login() {
                         />
                     </div>
                     {error && <p style={{ color: 'red' }}>{error}</p>}
-                    <a href="#" className={styles.forgotPassword}>Esqueci minha senha.</a>
+                    <Link className={styles.link1} href="recupera-senha">
+                    <button className={styles.forgotPassword}>Esqueci minha senha.</button>
+                    </Link>
                     <button type="submit" className={styles.button}>Entrar</button>
                 </form>
             </div>

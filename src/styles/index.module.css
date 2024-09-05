@@ -22,7 +22,6 @@
     font-style: normal;
 }
 
-
 .container {
     background-color: #fffaff;
     padding: 0;
@@ -63,8 +62,13 @@
     margin: 20px;
 }
 
+/* estilo do Link */
+.link {
+    display: inline-block;
+    width: 100%; 
+}
 
-/* Estilização dos botões dentro da seção esquerda */
+
 .button {
     background-color: #00a7e1;
     color: #ffffff;
@@ -75,16 +79,10 @@
     border-radius: 6px;
     cursor: pointer;
     text-align: center;
+    width: 100%; 
 }
-
 
 .button:hover {
-    background-color: #003459;
-    color: #00a7e1;
-    transition: 0.5s;
-}
-
-.button5:hover {
     background-color: #003459;
     color: #00a7e1;
     transition: 0.5s;

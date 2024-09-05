@@ -13,7 +13,7 @@ export default function Menu() {
     const isAuthenticated = localStorage.getItem('authenticated');
 
     if (isAuthenticated !== 'true') {
-      router.replace('/index'); // Redirecionar para a página de login
+      router.replace('/login'); // Redireciona para a página de login
     }
   }, [router]);
 
@@ -22,22 +22,33 @@ export default function Menu() {
       <div className={styles.leftSide}>
         <h1 className={styles.title}>ArmaZen</h1>
         <div className={styles.buttonContainer}>
-          <Link className={styles.Link} href="cadastro-itens">
+          
+          <Link href="/cadastro-itens" className={styles.link}>
             <button className={styles.button}>Cadastrar Itens</button>
           </Link>
 
-          <Link className={styles.Link} href="vizualizar-estoques">
-          <button className={styles.button}>Movimentar Itens</button>      
+          <Link href="/vizualizar-estoques" className={styles.link}>
+            <button className={styles.button}>Movimentar Itens</button>
           </Link>
+
+          <Link href="/vizualizar-estoques" className={styles.link}>
+            <button className={styles.button}>Visualizar Estoques</button>
+          </Link>
+
+          <Link href="/cadastro-usuarios" className={styles.link}>
+            <button className={styles.button}>Cadastrar Usuários</button>
+          </Link>
+
+          <Link href="/vizualizar-usuario" className={styles.link}>
+            <button className={styles.button}>Visualizar Usuários</button>
+          </Link>
+
           <button className={styles.button}>Relatório</button>
-          <button className={styles.button}>Visualizar Estoques</button>
-          <button className={styles.button}>Cadastrar Usuários</button>
-          <button className={styles.button}>Visualizar Usuários</button>
         </div>
 
       </div>
       <div className={styles.rightSide}></div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

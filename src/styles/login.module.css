@@ -101,19 +101,24 @@
 .button:hover {
   background-color: #003459;
   color: #dfe3eb;
+  transition: 0.5s;
 }
 
 /* Estilos do link "Esqueci minha senha" na seção esquerda */
 .forgotPassword {
-  font-family: 'Poppins-Medium';
+  background-color: transparent;
+  text-decoration: none;
   display: block;
   color: #ffffff;
   margin: 10px 0px;
   padding: 10px;
-  font-size: 1rem;  animation-duration: 1s;
+  font-size: 1rem;
   text-shadow: #00171f28 1px 1px 3px;
+  border: none;
+  cursor: pointer;
 }
 
 .forgotPassword:hover{
   color: #003459;
+  transition: 0.5s;
 } 
