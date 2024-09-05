@@ -10,7 +10,7 @@
     color: #00a7e1;
     font-size: 2.5rem;
     text-align: left; 
-    margin-top: 90px;
+    margin-top: 80px;
     margin-left: 9rem;
 }
 
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 20px;
+    margin-top: 5px;
     margin-left: 9rem;
     margin-right: 9rem;
 }
@@ -33,7 +33,6 @@
 
 .searchLabel {
     display: block;
-    margin-bottom: 5px;
     font-size: 1rem;
     color: #003459;
 }
@@ -46,7 +45,7 @@
 
 .searchInputContainer input {
     width: 100%;
-    padding: 10px 40px 10px 20px;
+    padding: 6px 14px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
@@ -59,8 +58,8 @@
 .searchIcon {
     color: #00a7e1;
     position: absolute;
-    right: 15px;
-    top: 50%;
+    right: 16px;
+    top: 55%;
     transform: translateY(-50%);
     font-size: 1.2rem;
     background-color: transparent;
@@ -82,7 +81,7 @@
 }
 
 .filterSelect {
-    padding: 10px;
+    padding: 6px 14px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     background-color: #ffffff;
@@ -92,19 +91,25 @@
 }
 
 /* Seção de cabeçalhos */
+.headerItem1 { grid-area: item1; }
+.headerItem2 { grid-area: item2; }
+.headerItem3 { grid-area: item3; }
+.headerItem4 { grid-area: item4; }
+.headerItem5 { grid-area: item5; }
+.headerItem6 { grid-area: item6; }
+
 .headerSection {
     display: grid;
-    grid-template-columns: 1fr 1.5fr 1.5fr 1.5fr 1fr 1fr;
-    gap: 10px;
+    grid-template-areas: 'item1 item1 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item2 item3 item3 item3 item4 item5 item6';
     margin-top: 20px;
     margin-left: 9rem;
     margin-right: 9rem;
     font-family: 'Poppins-Bold', sans-serif;
 }
 
-.headerItem1 {
-    font-size: 1.2rem;
-    font-family: 'Poppins-Medium', sans-serif;
+.headerItem1, .headerItem2, .headerItem3, .headerItem4, .headerItem5, .headerItem6 {
+    font-size: 1rem;
+    font-family: 'Poppins-Medium';
     color: #003459;
     padding: 0 10px;
     text-align: left;
@@ -130,15 +135,17 @@
     padding: 12px 15px;
     text-align: left;
     border-bottom: 2px solid #D9D9D9;
-    background-color: #ffffff;
+    background-color: #fffaff;
     color: #00171f;
     font-size: 1rem;
     max-width: 20%;
+    cursor: pointer;
 }
 
 /* Estilo da linha selecionada */
 .selectedRow {
-    background-color: #00a7e1; /* Cor de fundo para destacar a linha */
+    background-color: #00a7e1;
+    color: #00a7e1;
 }
   
 /* Estilo para a barra de rolagem dentro da tabela */
