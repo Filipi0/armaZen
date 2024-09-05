@@ -10,13 +10,13 @@ export default function Header() {
         <nav>
             <ul className={styles.navList}>
                 <li className={styles.navItem}>
-                    <Link href="/">Cadastro</Link>
+                    <Link href="/cadastro-itens">Cadastro</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link href="/">Visualização</Link>
+                    <Link href="/vizualizar-estoques">Visualização</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link href="/">Movimentação</Link>
+                    <Link href="/movimentar-estoque">Movimentação</Link>
                 </li>
                 <li className={styles.navItem}>
                     <Link href="/">Relatório</Link>

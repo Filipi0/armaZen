@@ -7,14 +7,14 @@ import VisualizarUsuarios from "./vizualizar-usuario.jsx";
 import VisualizarEstoques from "./vizualizar-estoques.jsx";
 import MovimentarEstoque from "./movimentar-estoque.jsx";
 
-/*
-export default function App({ Component, pageProps }) {
-    return    <>
-    <Component {...pageProps} />
-   </>
-}*/
-
 
 export default function App({ Component, pageProps }) {
-    return <Menu />;
+    return <>
+        <Component {...pageProps} />
+    </>
 }
+
+
+// export default function App({ Component, pageProps }) {
+//     return <Menu />;
+// }
