@@ -58,9 +58,9 @@ function VisualizarUsuarios() {
             <div className={styles.filterContainer}>
               <label htmlFor="filter" className={styles.filterLabel}>Filtrar por</label>
               <select id="filter" name="filter" className={styles.filterSelect}>
-                <option value="nome">Nome</option>
-                <option value="email">Email</option>
-                <option value="permissao">Permissão</option>
+                <option className={styles.opt} value="nome">Nome</option>
+                <option className={styles.opt} value="email">Email</option>
+                <option className={styles.opt} value="permissao">Permissão</option>
               </select>
             </div>
           </section>

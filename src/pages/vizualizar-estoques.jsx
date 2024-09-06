@@ -67,7 +67,7 @@ function VisualizarEstoques() {
               </div>
             </div>
             <div>
-              <label htmlFor="filter" className={styles.filterLabel2}>Filtrar por</label>
+              <label htmlFor="filter" className={styles.filterLabel}>Filtrar por</label>
               <select
                 id="filter"
                 name="filter"
@@ -75,12 +75,12 @@ function VisualizarEstoques() {
                 value={filter}
                 onChange={handleFilterChange}
               >
-                <option value="nome">Nome do item</option>
-                <option value="codigo">Código</option>
-                <option value="fornecedor">Fornecedor</option>
-                <option value="unidade">Unidade de Medida</option>
-                <option value="quantidade">Quantidade</option>
-                <option value="validade">Data de Validade</option>
+                <option className={styles.opt} value="nome">Nome do item</option>
+                <option className={styles.opt} value="codigo">Código</option>
+                <option className={styles.opt} value="fornecedor">Fornecedor</option>
+                <option className={styles.opt} value="unidade">Unidade de Medida</option>
+                <option className={styles.opt} value="quantidade">Quantidade</option>
+                <option className={styles.opt} value="validade">Data de Validade</option>
               </select>
             </div>
           </section>

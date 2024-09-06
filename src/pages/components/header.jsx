@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <header className={styles.header}>
         <h1 className={styles.logo}>
-            <Link href='/index'>ArmaZen</Link>
+            <Link href='/'>ArmaZen</Link>
         </h1>
         <nav>
             <ul className={styles.navList}>

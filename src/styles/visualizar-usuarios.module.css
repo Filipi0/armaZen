@@ -91,6 +91,11 @@
     font-size: 1rem;
     color: #003459;
     width: 100%;
+    font-family: 'Poppins-Medium';
+}
+
+.opt{
+    font-family: 'Poppins-Medium';
 }
 
 /* Seção de cabeçalhos */
@@ -198,7 +203,7 @@
 .btnExcluir {
     background-color: #00a7e1;
     color: #ffffff;
-    padding: 10px 60px;
+    padding: 6px 100px;
     border-radius: 30px;
     border: none;
     font-size: 1rem;
@@ -208,4 +213,5 @@
 
 .btnExcluir:hover {
     background-color: #003459;
+    color: #00a7e1;
 }
