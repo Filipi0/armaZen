@@ -48,7 +48,7 @@
     font-size: 3rem;
     color: #00a7e1;
     margin: 0;
-    margin-right: 52%;
+    margin-right: 58%;
     text-align: left;
 }
 
@@ -57,10 +57,10 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
-    height: 80%;
+    height: 70%;
     min-width: 60%;
     margin: 20px;
-    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 /* estilo do Link */
@@ -73,8 +73,8 @@
 .button {
     background-color: #00a7e1;
     color: #ffffff;
-    padding: 45px;
-    font-size: 1.3rem;
+    padding: 40px;
+    font-size: 1.2rem;
     font-weight: bold;
     border: none;
     border-radius: 6px;

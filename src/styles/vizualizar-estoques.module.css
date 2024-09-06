@@ -8,10 +8,17 @@
 /* Estilo do título */
 .h2 {
     color: #00a7e1;
+    font-family: 'Poppins-Medium', sans-serif;
     font-size: 2.5rem;
-    text-align: left; 
-    margin-top: 110px;
+    line-height: 1.5;
+    margin: 0;
+    margin-top: 80px;
     margin-left: 9rem;
+}
+
+/* Container principal */
+.container {
+    padding: 5px;
 }
 
 /* Seção de filtros */
@@ -19,16 +26,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 15px;
     margin-left: 9rem;
     margin-right: 9rem;
 }
 
 /* Estilo para o input de pesquisa */
 .searchContainer {
-    flex: 2;
     margin-right: 30px;
-    width: 100%;
+    width: 70%;
 }
 
 .searchLabel {
