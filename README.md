@@ -1,5 +1,7 @@
 # ArmaZen
 
+<img src="https://github.com/Filipi0/armaZen/blob/main/public/logo.png" alt="ArmaZen">
+
 **Instituto Federal do Piauí (IFPI) - Campus Picos**  
 **Análise e Desenvolvimento de Sistemas - Módulo III**  
 **Disciplina: PROGRAMAÇÃO PARA INTERNET I**  
