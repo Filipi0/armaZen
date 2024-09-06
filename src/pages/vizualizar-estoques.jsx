@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from './components/header.jsx';
 import Footer from './components/footer.jsx';
 import styles from '../styles/vizualizar-estoques.module.css';
@@ -8,16 +8,13 @@ import styles from '../styles/vizualizar-estoques.module.css';
 function VisualizarEstoques() {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('nome');
-  const [estoques, setEstoques] = useState([
-    { codigo: '00002', nomeItem: 'Papel Ofício', fornecedor: 'Suprimentos', unidade: 'Resma', quantidade: 2, validade: '----' },
-    { codigo: '00005', nomeItem: 'Pó de Café', fornecedor: 'Atacadão', unidade: 'Pacote', quantidade: 3, validade: '25/01/2025' },
-    { codigo: '00009', nomeItem: 'Lâmpada 15W', fornecedor: 'Engipec', unidade: 'Unidade', quantidade: 1, validade: '----' },
-    { codigo: '00011', nomeItem: 'Refil para Grampeador', fornecedor: '----', unidade: 'Caixa', quantidade: 4, validade: '----' },
-    { codigo: '00012', nomeItem: 'Papel A4', fornecedor: '----', unidade: 'Resma', quantidade: 1, validade: '----' },
-    { codigo: '00015', nomeItem: 'Copos Descartáveis 100 uni', fornecedor: '----', unidade: 'Pacote', quantidade: 0, validade: '----' }
-  ]);
+  const [estoques, setEstoques] = useState([]);
 
-  const [selectedItem, setSelectedItem] = useState(null); // Armazena o item selecionado
+  useEffect(() => {
+    // Carregar os itens do LocalStorage ao montar o componente
+    const estoquesLocalStorage = JSON.parse(localStorage.getItem('estoques')) || [];
+    setEstoques(estoquesLocalStorage);
+  }, []);
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
@@ -25,25 +22,6 @@ function VisualizarEstoques() {
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
-  };
-
-  // Função para selecionar um item da tabela
-  const handleSelectItem = (item) => {
-    setSelectedItem(item);
-  };
-
-  // Função para excluir o item selecionado
-  const handleDelete = () => {
-    if (selectedItem) {
-      const confirmDelete = window.confirm(`Tem certeza que deseja excluir o item ${selectedItem.nomeItem}?`);
-      if (confirmDelete) {
-        const novosEstoques = estoques.filter((estoque) => estoque.nomeItem !== selectedItem.nomeItem);
-        setEstoques(novosEstoques);
-        setSelectedItem(null); // Desmarca o item selecionado após a exclusão
-      }
-    } else {
-      alert("Selecione um item para excluir.");
-    }
   };
 
   // Função para filtrar os estoques
@@ -120,15 +98,11 @@ function VisualizarEstoques() {
             <table className={styles.userTable}>
               <tbody>
                 {filteredEstoques.map((estoque, index) => (
-                  <tr
-                    key={index}
-                    className={estoque === selectedItem ? styles.selectedRow : ''}
-                    onClick={() => handleSelectItem(estoque)}  // Marca o item selecionado
-                  >
+                  <tr key={index}>
                     <td>{estoque.codigo}</td>
                     <td>{estoque.nomeItem}</td>
                     <td>{estoque.fornecedor}</td>
-                    <td>{estoque.unidade}</td>
+                    <td>{estoque.unidadeMedida}</td>
                     <td>{estoque.quantidade}</td>
                     <td>{estoque.validade}</td>
                   </tr>
@@ -136,12 +110,6 @@ function VisualizarEstoques() {
               </tbody>
             </table>
           </section>
-
-          <div className={styles.actionSection}>
-            <button type="button" className={styles.btnExcluir} onClick={handleDelete}>
-              Excluir Estoque
-            </button>
-          </div>
         </main>
       </div>
       <Footer />
