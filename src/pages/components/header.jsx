@@ -10,9 +10,6 @@ export default function Header() {
         <nav>
             <ul className={styles.navList}>
                 <li className={styles.navItem}>
-                    <Link href="/">Home</Link>
-                </li>
-                <li className={styles.navItem}>
                     <Link href="/cadastro-itens">Cadastro</Link>
                 </li>
                 <li className={styles.navItem}>

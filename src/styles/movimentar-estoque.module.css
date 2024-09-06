@@ -10,21 +10,20 @@
     color: #00a7e1;
     font-size: 2.5rem;
     text-align: left; 
-    margin-top: 130px;
-    margin-left: 15rem;
+    margin-top: 110px;
+    margin-left: 9rem;
 }
 
 /* Container */
 .container {
-    padding: 20px;
-    margin-top: 5px;
+    padding: 5px;
     height: 50vh;
 }
 
 /* Seção de pesquisa */
 .searchSection {
-    margin-left: 20rem;
-    margin-right: 20rem;
+    margin-left: 15rem;
+    margin-right: 15rem;
     margin-top: 20px;
 }
 
@@ -46,20 +45,31 @@
 /* Estilo do  */
 .searchInput {
     width: 100%;
-    max-width: 1000px;
-    padding: 10px 40px 10px 20px;
+    padding: 6px 14px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
+    font-family: 'Poppins-Medium';
+}
+
+.searchIcon {
+    color: #00a7e1;
+    position: absolute;
+    right: 16px !important;
+    top: 55% !important;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 .searchLabel2 {
     font-size: 1.2rem;
     color: #003459;
-    margin-bottom: 10px;
     display: flex;
     justify-content: center;
-    margin-top: 65px;
+    margin-top: 30px;
 }
 
 /* Estilo para o contêiner do input e os ícones */
@@ -67,31 +77,30 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
     position: relative;
 }
 .increment {
     width: 10px;
     position: absolute;
     left: 570px;
-    top: 20%;
+    top: 18%;
     z-index: 1;
-    
 }
 
 .decrement {
     width: 10px;
     position: absolute;
     left: 570px;
-    top: 50%;
+    top: 48%;
     z-index: 1;
 }
 
 /* Estilo do input centralizado */
 .searchInput2 {
     width: 100%;
-    max-width: 120px;
-    padding: 10px 20px; 
+    max-width: 280px;
+    padding: 6px 14px; 
     border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
@@ -106,17 +115,6 @@
 
 .searchInput::placeholder {
     color: #003459;
-}
-
-/* Estilo do ícone de pesquisa */
-.searchIcon {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
 }
 
 /* Estilo geral para os botões */
@@ -145,5 +143,6 @@
 
 .button:hover {
     background-color: #003459;
+    color: #00a7e1;
 }
 
