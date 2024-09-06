@@ -140,6 +140,27 @@
     font-size: 1rem;
 }
 
+/* Estilo para as linhas da tabela */
+.userTable tr {
+    cursor: pointer; 
+    transition: 0.3s ease; 
+    background-color: blue;
+}
+
+/* Quando o usuário passar o mouse sobre uma linha */
+.userTable tr:hover {
+    background-color: #1f2830;
+    transition: 0.3s ease;
+    background-color: #154d7e;
+}
+
+/* Estilo da linha selecionada */
+.selectedRow {
+    background-color: #00a7e1; /* Cor de fundo para destacar a linha NÂO ESTÁ FUNCIONANDO*/
+    color: #ffffff;
+}
+
+
 /* Estilo da linha selecionada */
 .selectedRow {
     background-color: #00a7e1; /* Cor de fundo para destacar a linha */
