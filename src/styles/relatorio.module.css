@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('/fonts/Poppins-1/Poppins-ExtraBold.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.body{
+    background-color: #fffaff;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+/* Estilo do título */
+.h2 {
+    color: #00a7e1;
+    font-size: 2.5rem;
+    text-align: left; 
+    margin-top: 80px;
+    margin-left: 9rem;
+}
+
+/* Container principal */
+.container {
+    padding: 5px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 9rem;
+    margin-right: 9rem;
+    gap: 30px;
+    margin-bottom: 70px;
+}

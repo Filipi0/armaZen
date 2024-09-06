@@ -1,14 +1,15 @@
 .card {
     border-radius: 8px;
-    padding: 16px;
+    padding: 6px 16px;
     width: 90%;
     box-sizing: border-box;
     text-align: center;
-    background-color: #f9f9f9;
-    margin: 16px auto;
+    background-color: #fffaff;
     color: #00171f;
     font-family: 'Poppins-Medium';
     transition: 0.5s;
+    border: 2px solid #00a7e1;
+    align-self: start;
 }
 
 .expandedCard {
