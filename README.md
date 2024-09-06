@@ -27,8 +27,8 @@ Ao otimizar o gerenciamento de estoques, ArmaZen ajuda a reduzir custos operacio
 Para realizar um teste das funçionalizades do atualmente disponíveis, utilize os credenciais a seguir
 
 ```
-**email:** admin@example.com
-**senha:** admin123
+email: admin@example.com
+senha: admin123
 ```
 
 ## Tecnologias 
@@ -36,3 +36,6 @@ Para realizar um teste das funçionalizades do atualmente disponíveis, utilize 
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)  
 ![image](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)  
 ![image](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+
+## Deploy  
+![image](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
