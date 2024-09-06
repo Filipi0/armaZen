@@ -67,7 +67,7 @@ function VisualizarEstoques() {
               </div>
             </div>
             <div>
-              <label htmlFor="filter" className={styles.filterLabel}>Filtrar por</label>
+              <label htmlFor="filter" className={styles.filterLabel2}>Filtrar por</label>
               <select
                 id="filter"
                 name="filter"
