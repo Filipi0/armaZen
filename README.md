@@ -17,7 +17,7 @@ O design completo do projeto pode ser encontrado em:
 
 O projeto ArmaZen visa fornecer uma solução eficiente de gerenciamento de inventário para pequenas e médias empresas. 
 
-Ao otimizar o gerenciamento de estoques, ArmaZen ajuda a reduzir custos operacionais e evitar perdas financeiras devido a excesso ou falta de estoque.
+Ao otimizar o gerenciamento de estoques, ArmaZen ajuda a reduzir custos operacionais e evitar perdas financeiras devido ao excesso ou falta de estoque.
 ## Funcionalidades 
 - **Rastreamento de Estoques em Tempo Real:** Monitora cada item de estoque em tempo real, oferecendo visibilidade completa sobre entradas e saídas.
 - **Relatórios e Análises Detalhadas:** Gera relatórios detalhados e análises que ajudam a identificar tendências, prever necessidades de estoque e melhorar a eficiência operacional.
