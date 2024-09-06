@@ -22,6 +22,15 @@ Ao otimizar o gerenciamento de estoques, ArmaZen ajuda a reduzir custos operacio
 - **Rastreamento de Estoques em Tempo Real:** Monitora cada item de estoque em tempo real, oferecendo visibilidade completa sobre entradas e saídas.
 - **Relatórios e Análises Detalhadas:** Gera relatórios detalhados e análises que ajudam a identificar tendências, prever necessidades de estoque e melhorar a eficiência operacional.
 - **Gestão de Pedidos e Fornecedores:** Simplifica a gestão de pedidos e fornecedores, permitindo um fluxo de trabalho mais fluido e organizado.
+
+## Para testes  
+Para realizar um teste das funçionalizades do atualmente disponíveis, utilize os credenciais a seguir
+
+```
+**email:** admin@example.com
+**senha:** admin123
+```
+
 ## Tecnologias 
 ![image](https://img.shields.io/badge/next%20js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)  
 ![image](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)  
