@@ -27,8 +27,8 @@ Ao otimizar o gerenciamento de estoques, ArmaZen ajuda a reduzir custos operacio
 Para realizar um teste das funçionalizades do atualmente disponíveis, utilize os credenciais a seguir
 
 ```
-**email:** admin@example.com
-**senha:** admin123
+email: admin@example.com
+senha: admin123
 ```
 
 ## Tecnologias 
