@@ -44,7 +44,7 @@ export default function Menu() {
             <button className={styles.button}>Visualizar Usuários</button>
           </Link>
 
-          <Link href="/relatorios" className={styles.link}>
+          <Link href="/relatorio" className={styles.link}>
           <button className={styles.button}>Relatório</button>
           </Link>
         </div>

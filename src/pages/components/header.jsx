@@ -10,6 +10,9 @@ export default function Header() {
         <nav>
             <ul className={styles.navList}>
                 <li className={styles.navItem}>
+                    <Link href="/">Home</Link>
+                </li>
+                <li className={styles.navItem}>
                     <Link href="/cadastro-itens">Cadastro</Link>
                 </li>
                 <li className={styles.navItem}>
@@ -19,7 +22,7 @@ export default function Header() {
                     <Link href="/movimentar-estoque">Movimentação</Link>
                 </li>
                 <li className={styles.navItem}>
-                    <Link href="/">Relatório</Link>
+                    <Link href="/relatorio">Relatório</Link>
                 </li>
             </ul>
         </nav>
