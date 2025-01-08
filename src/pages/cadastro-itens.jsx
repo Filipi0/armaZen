@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Header from './components/header.jsx';
 import styles from '../styles/cadastroItens.module.css';
 import Footer from './components/footer.jsx';
-import Sidebar from './components/Sidebar.jsx';
 
 function CadastroItens() {
     const [codigo, setCodigo] = useState('');
