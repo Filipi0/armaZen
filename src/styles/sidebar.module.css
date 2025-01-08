@@ -1,0 +1,54 @@
+/* Estilos gerais */
+.container {
+    padding-top: 40px;
+    background-color: #fffaff;
+    font-family: "Poppins-ligtht", sans-serif;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Menu lateral */
+  .leftSide {
+    background-color: #D9D9D9;
+    color: #ffffff;
+    padding: 0px;
+    width: 80px;
+    transition: width 0.5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .menuOpen {
+    width: 300px; /* Largura expandida */
+  }
+  
+  
+  .menuLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 40px;
+  }
+  
+  .link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+  }
+  
+  .link:hover {
+    background-color: #ffffff;
+  }
+  
+  .icon {
+    font-size: 1.5rem;
+  }

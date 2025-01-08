@@ -1,16 +1,14 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Image from "next/image";
 import styles from "../styles/index.module.css";
 import Footer from "./components/footer.jsx";
 import Card from "./components/card.jsx";
 import Header from "./components/header";
+import Sidebar from "./components/Sidebar"; // Importe o componente
 
 export default function Menu() {
-  const [isMenuOpen, setMenuOpen] = useState(false); // Estado para abrir/recolher o menu
   const router = useRouter();
 
   useEffect(() => {
@@ -22,88 +20,11 @@ export default function Menu() {
   }, [router]);
 
   return (
-    
     <div className={styles.container}>
-  <Header />
-      {/* Menu lateral */}
-      <div
-        className={`${styles.leftSide} ${isMenuOpen ? styles.menuOpen : ""}`}
-        onMouseEnter={() => setMenuOpen(true)}
-        onMouseLeave={() => setMenuOpen(false)}
-      >
-        <div className={styles.menuLinks}>
-          <Link href="/cadastro-itens" className={styles.link}>
-            <Image
-              src="/icons/box.png"
-              alt="Cadastrar Itens"
-              width={24}
-              height={24}
-              className={styles.icon}
-            />
-            {isMenuOpen && <span>Cadastrar Itens</span>}
-          </Link>
-
-          <Link href="/movimentar-estoque" className={styles.link}>
-            <Image
-              src="/icons/flecha.png"
-              alt="Movimentar Itens"
-              width={24}
-              height={24}
-              className={styles.icon}
-            />
-            {isMenuOpen && <span>Movimentar Itens</span>}
-          </Link>
-
-          <Link href="/vizualizar-estoques" className={styles.link}>
-            <Image
-              src="/icons/box2.png"
-              alt="Visualizar Estoques"
-              width={24}
-              height={24}
-              className={styles.icon}
-            />
-            {isMenuOpen && <span>Visualizar Estoques</span>}
-          </Link>
-
-          <Link href="/cadastro-usuarios" className={styles.link}>
-            <Image
-              src="/icons/addUsers.png"
-              alt="Cadastrar Usuários"
-              width={24}
-              height={24}
-              className={styles.icon}
-            />
-            {isMenuOpen && <span>Cadastrar Usuários</span>}
-          </Link>
-
-          <Link href="/vizualizar-usuario" className={styles.link}>
-            <Image
-              src="/icons/users.png"
-              alt="Visualizar Usuários"
-              width={24}
-              height={24}
-              className={styles.icon}
-            />
-            {isMenuOpen && <span>Visualizar Usuários</span>}
-          </Link>
-
-          <Link href="/relatorio" className={styles.link}>
-            <Image
-              src="/icons/relatorio.png"
-              alt="Relatório"
-              width={24}
-              height={24}
-              className={styles.icon}
-            />
-            {isMenuOpen && <span>Relatório</span>}
-          </Link>
-
-        </div>
-      </div>
-
-      {/* Conteúdo principal */}
-      <div className={styles.rightSide}>
-        <div>
+      <Header />
+      <div className={styles.contentWrapper}>
+        <Sidebar /> {/* Use o componente Sidebar */}
+        <div className={styles.rightSide}>
           <Card
             titleCollapsed="Itens perto do vencimento"
             count={0}
@@ -122,7 +43,6 @@ export default function Menu() {
           />
         </div>
       </div>
-
       <Footer />
     </div>
   );
