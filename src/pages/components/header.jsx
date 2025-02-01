@@ -20,7 +20,7 @@ export default function Header() {
           <Link href='/'>ArmaZen</Link>
         </h1>
 
-        {/* NAVEGAÇÃO - Apenas para telas maiores */}
+        {/* NAVEGAÇÃO - Apenas para telas maiores */}   
         <nav>
           <ul className={styles.navList}>
             <li className={styles.navItem}>

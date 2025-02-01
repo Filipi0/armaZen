@@ -10,8 +10,8 @@
 
 /* Estilos para o container principal */
 @font-face {
-  font-family: 'Poppins-Medium';
-  src: url('/fonts/Poppins-1/Poppins-Bold.ttf') format('truetype');
+  font-family: "Poppins-Medium";
+  src: url("/fonts/Poppins-1/Poppins-Bold.ttf") format("truetype");
   font-style: normal;
 }
 
@@ -24,21 +24,21 @@
 }
 
 /*Estilos para o lado esquerdo*/
-.leftside{
+.leftside {
   height: 70%;
   color: #003459;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
 }
 
-.title{
+.title {
   font-size: 4rem;
   font-weight: bolder;
   color: #00a7e1;
 }
 
 /* Estilos gerais para o formulário */
-.loginBox{
-  font-family: 'Poppins-Medium';
+.loginBox {
+  font-family: "Poppins-Medium";
   background-color: #00a7e1;
   border-radius: 8px;
   padding: 40px;
@@ -74,7 +74,7 @@
 
 /* Estilos para os campos de input */
 .input {
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   font-weight: bold;
   background-color: #fffaff;
   border: none;
@@ -88,7 +88,7 @@
 
 /* Estilos para o botão de Entrar */
 .button {
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   background-color: #fffaff;
   color: #003459;
   font-weight: bold;
@@ -115,7 +115,7 @@
   background-color: transparent;
   text-decoration: none;
   display: block;
-  font-family: 'Poppins-Medium';
+  font-family: "Poppins-Medium";
   color: #fffaff;
   margin: 10px 0px;
   padding: 10px;
@@ -125,7 +125,91 @@
   cursor: pointer;
 }
 
-.forgotPassword:hover{
+.forgotPassword:hover {
   color: #003459;
   transition: 0.5s;
-} 
+}
+
+@media (max-width: 768px) {
+  /* Ajuste no container principal */
+  .container {
+    flex-direction: column;
+    padding: 20px;
+    height: auto;
+    justify-content: center;
+  }
+
+  /* Ajuste na seção esquerda (logo e texto) */
+  .leftside {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  .title {
+    margin-top: 100px;
+    font-size: 3rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .LOGIN {
+    display: none;
+  }
+
+  /* Ajuste no formulário de login */
+  .loginBox {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  /* Ajuste nos inputs */
+  .input {
+    font-size: 0.9rem;
+    padding: 10px 15px 10px 50px; /* Aumentando o padding esquerdo */
+    border: 2px solid #003459;
+    background-color: transparent;
+    border-radius: 30px;
+  }
+
+  /* Ajuste nos botões */
+  .button,
+  .forgotPassword {
+    /* Agora os dois botões terão o mesmo estilo */
+    font-size: 0.9rem;
+    padding: 10px;
+    background-color: #00a7e1;
+    color: #fffaff;
+    text-align: center;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
+  }
+
+  .button {
+    margin-top: 20px;
+  }
+  .inputGroup::placeholder {
+    padding-left: 100px;
+  }
+
+  .forgotPassword {
+    outline: none; /* Remove a linha azul ao clicar */
+  }
+
+  .button:hover,
+  .forgotPassword:hover {
+    background-color: #003459;
+    color: #fffaff;
+  }
+}
