@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../../styles/card.module.css';
+import styles from '../../styles/components/card.module.css';
 
 const Card = ({ titleCollapsed, count, items }) => {
   const [isExpanded, setIsExpanded] = useState(false);
