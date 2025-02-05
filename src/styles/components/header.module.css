@@ -6,8 +6,6 @@
   padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center; /* Garante que o container fique no centro */
-  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
@@ -22,14 +20,21 @@
   align-items: center;
 }
 
-/* Ajuste na logo */
 .logo {
-  flex-grow: 0.8; /* Faz a logo ocupar o espaço disponível à esquerda */
+  flex-grow: 0; /* Evita crescimento */
+  margin: 0; /* Remove qualquer margem automática */
+  margin-right: auto;
+}
+
+.menuIcon {
+  cursor: pointer; /* Faz com que o cursor fique no formato de clique */
+  height: 20px;
+  padding-right: 25px;
 }
 
 .logo a {
   color: #fffaff;
-  font-family: 'Poppins-Bold';
+  font-family: "Poppins-Bold";
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -43,7 +48,6 @@
   padding: 0;
 }
 
-
 /* Estilos para cada item da navegação */
 .navItem {
   font-size: 1.2rem;
@@ -52,37 +56,35 @@
 /* Estilos para os links */
 .navItem a {
   color: #ffffff;
-  font-family: 'Poppins-regular';
+  font-family: "Poppins-regular";
   text-decoration: none;
 }
 
 /* Estilos para os links quando o mouse passa sobre eles */
 .navItem a:hover {
-  color:#003459;
+  color: #003459;
 }
 
-.logout-icon {
-  display: none; /* Esconde por padrão */
+.logoutIcon {
+  margin-left: auto;
+  padding-right: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
 /* NAVEGAÇÃO RESPONSIVA */
 @media (max-width: 768px) {
   .navList {
-    display: none; /* Esconde a navegação em telas pequenas */
+    display: none;
   }
 
   /* Ajustando a logo e o ícone de logout para ficarem alinhados */
   .header-container {
     justify-content: space-between;
   }
-  .logout-icon {
-    display: flex; /* Mostra apenas em telas menores */
-    align-items: center;
-    cursor: pointer;
-  }
 
-  .logout-icon img {
-    width: 30px;
-    height: 30px;
+  .logoutIcon {
+    padding-right: 10px;
   }
 }

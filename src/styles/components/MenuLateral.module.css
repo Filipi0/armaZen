@@ -1,0 +1,59 @@
+.mobileMenu {
+  position: absolute;
+  top: 50px;
+  left: -100%;
+  width: 100%;
+  max-width: 300px;
+  height: calc(100vh - 50px);
+  background-color: #ffffff;
+  color: #003459;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: left 0.3s ease-in-out;
+  z-index: 999;
+  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+/* Quando o menu está aberto */
+.mobileMenu.open {
+  left: 0;
+}
+.closeIcon {
+  display: none;
+}
+
+.menuLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  align-items: flex-start;
+  padding-left: 20px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #003459;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s;
+  width: 80%;
+  justify-content: flex-start;
+}
+
+.link:hover {
+  background-color: #dfe3eb;
+}
+
+/* Ícones dentro do menu */
+.icon {
+  font-size: 1.5rem;
+  color: #003459;
+}
