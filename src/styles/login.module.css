@@ -147,7 +147,7 @@
   }
 
   .title {
-    margin-top: 100px;
+    margin-top: 50px;
     font-size: 3rem;
   }
 
@@ -162,7 +162,7 @@
   /* Ajuste no formulário de login */
   .loginBox {
     width: 100%;
-    max-width: 400px;
+    max-width: 100%;
     padding: 20px;
     background-color: transparent;
     box-shadow: none;
@@ -180,10 +180,9 @@
   /* Ajuste nos botões */
   .button,
   .forgotPassword {
-    /* Agora os dois botões terão o mesmo estilo */
+    margin-top: 30px;
     font-size: 0.9rem;
     padding: 10px;
-    background-color: #00a7e1;
     color: #fffaff;
     text-align: center;
     border: none;
@@ -198,13 +197,14 @@
 
   .button {
     margin-top: 20px;
+    align-items: center;
+    background-color: #00a7e1;
   }
-  .inputGroup::placeholder {
-    padding-left: 100px;
-  }
+
 
   .forgotPassword {
     outline: none; /* Remove a linha azul ao clicar */
+    background-color: #003459;
   }
 
   .button:hover,
