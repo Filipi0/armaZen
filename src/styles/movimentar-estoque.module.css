@@ -5,7 +5,7 @@
     font-style: normal;
 }
 
-/* Estilo do título */
+/* Título da Página */
 .h2 {
     color: #00a7e1;
     font-family: 'Poppins-Medium', sans-serif;
@@ -13,52 +13,59 @@
     line-height: 1.5;
     margin: 0;
     margin-top: 80px;
-    margin-left: 9rem;
+    text-align: center;
 }
 
-/* Container */
+/* Container Principal */
 .container {
     padding: 5px;
-    height: 50vh;
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Seção de pesquisa */
+/* Seção de Pesquisa */
 .searchSection {
-    margin-left: 15rem;
-    margin-right: 15rem;
+    width: 80%;
+    max-width: 600px;
     margin-top: 20px;
 }
 
-/* Estilo para o label da pesquisa */
-.searchLabel {
+/* Label da Pesquisa */
+.searchLabel, .searchLabel2 {
     display: block;
     font-size: 1.2rem;
     color: #003459;
     margin-bottom: 10px;
+    text-align: center;
 }
 
-/* Estilo do input de pesquisa */
+/* Campo de Pesquisa */
 .searchInputContainer {
     display: flex;
     align-items: center;
     position: relative;
 }
 
-/* Estilo do  */
 .searchInput {
     width: 100%;
-    padding: 6px 14px;
+    padding: 10px 16px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
     font-family: 'Poppins-Medium';
 }
 
+.searchInput::placeholder {
+    color: #003459;
+}
+
+/* Ícone de Pesquisa */
 .searchIcon {
-    color: #00a7e1;
     position: absolute;
-    right: 16px !important;
-    top: 55% !important;
+    right: 16px;
+    top: 50%;
     transform: translateY(-50%);
     font-size: 1.2rem;
     background-color: transparent;
@@ -66,15 +73,7 @@
     cursor: pointer;
 }
 
-.searchLabel2 {
-    font-size: 1.2rem;
-    color: #003459;
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-/* Estilo para o contêiner do input e os ícones */
+/* Contêiner do Input de Quantidade */
 .containerInput {
     display: flex;
     align-items: center;
@@ -82,49 +81,42 @@
     margin-top: 10px;
     position: relative;
 }
-.increment {
-    width: 10px;
-    position: absolute;
-    left: 570px;
-    top: 18%;
-    z-index: 1;
-}
 
-.decrement {
-    width: 10px;
-    position: absolute;
-    left: 570px;
-    top: 48%;
-    z-index: 1;
-}
-
-/* Estilo do input centralizado */
+/* Input Centralizado */
 .searchInput2 {
     width: 100%;
-    max-width: 280px;
-    padding: 6px 14px; 
+    max-width: 200px;
+    padding: 6px 14px;
     border-radius: 30px;
     border: 2px solid #00a7e1;
     font-size: 1rem;
-    text-align: center; 
+    text-align: center;
 }
 
-
-/* Estilo dos ícones de incremento e decremento */
+/* Botões de Incremento e Decremento */
 .increment, .decrement {
     cursor: pointer;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    z-index: 1;
 }
 
-.searchInput::placeholder {
-    color: #003459;
+/* Ajuste de posição dos ícones */
+.increment {
+    right: 10px;
 }
 
-/* Estilo geral para os botões */
+.decrement {
+    left: 10px;
+}
+
+/* Botões de Ação */
 .buttonGroup {
     display: flex;
     justify-content: center;
-    margin-top: 70px;
-
+    margin-top: 40px;
+    gap: 10px;
 }
 
 .button {
@@ -135,12 +127,11 @@
     border-radius: 20px;
     font-size: 1rem;
     cursor: pointer;
-    width: 60%;
+    width: 45%;
     transition: 0.5s;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
 }
 
 .button:hover {
@@ -148,3 +139,41 @@
     color: #00a7e1;
 }
 
+/* Ajustes para Mobile */
+@media (max-width: 768px) {
+    .h2 {
+        font-size: 1.2rem;
+        margin-top: 100px;
+        margin-left: 20px;
+    }
+
+    .searchSection {
+        width: 85%;
+    }
+
+    .searchInput {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .searchInput2 {
+        font-size: 0.rem;
+        padding: 6px 10px;
+    }
+
+    .increment, .decrement {
+        width: 20px;
+        height: 20px;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .button {
+        width: 100%;
+        font-size: 0.9rem;
+    }
+}
