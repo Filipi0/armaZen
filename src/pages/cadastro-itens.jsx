@@ -1,6 +1,5 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
+import React, { useState, useEffect } from "react";
 import Header from "./components/header.jsx";
 import styles from "../styles/cadastroItens.module.css";
 import Footer from "./components/footer.jsx";
@@ -13,6 +12,13 @@ function CadastroItens() {
   const [quantidade, setQuantidade] = useState("");
   const [unidadeMedida, setUnidadeMedida] = useState("caixa");
   const [validade, setValidade] = useState("");
+
+  // Função para gerar um código automaticamente
+  useEffect(() => {
+    const estoques = JSON.parse(localStorage.getItem("estoques")) || [];
+    const novoCodigo = estoques.length > 0 ? `ITM${estoques.length + 1}` : "ITM1";
+    setCodigo(novoCodigo);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,8 +37,8 @@ function CadastroItens() {
     estoqueAtual.push(novoItem);
     localStorage.setItem("estoques", JSON.stringify(estoqueAtual));
 
-    // Limpa o formulário
-    setCodigo("");
+    // Gera um novo código para o próximo item
+    setCodigo(`ITM${estoqueAtual.length + 1}`);
     setTipoItem("");
     setFornecedor("");
     setNomeItem("");
@@ -61,7 +67,7 @@ function CadastroItens() {
                     id="codigo"
                     name="codigo"
                     value={codigo}
-                    onChange={(e) => setCodigo(e.target.value)}
+                    readOnly // Impede edição manual do código
                   />
                 </div>
                 <div className={styles.formGroup}>

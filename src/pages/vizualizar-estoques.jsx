@@ -30,10 +30,12 @@ function VisualizarEstoques() {
       return estoque.nomeItem.toLowerCase().includes(searchTerm.toLowerCase());
     } else if (filter === 'codigo') {
       return estoque.codigo.toLowerCase().includes(searchTerm.toLowerCase());
+    } else if (filter === 'tipo') {
+      return estoque.tipoItem.toLowerCase().includes(searchTerm.toLowerCase());
     } else if (filter === 'fornecedor') {
       return estoque.fornecedor.toLowerCase().includes(searchTerm.toLowerCase());
     } else if (filter === 'unidade') {
-      return estoque.unidade.toLowerCase().includes(searchTerm.toLowerCase());
+      return estoque.unidadeMedida.toLowerCase().includes(searchTerm.toLowerCase());
     } else if (filter === 'quantidade') {
       return estoque.quantidade.toString().includes(searchTerm);
     } else if (filter === 'validade') {
@@ -77,6 +79,7 @@ function VisualizarEstoques() {
               >
                 <option className={styles.opt} value="nome">Nome do item</option>
                 <option className={styles.opt} value="codigo">Código</option>
+                <option className={styles.opt} value="tipo">Tipo do Item</option>
                 <option className={styles.opt} value="fornecedor">Fornecedor</option>
                 <option className={styles.opt} value="unidade">Unidade de Medida</option>
                 <option className={styles.opt} value="quantidade">Quantidade</option>
@@ -85,22 +88,26 @@ function VisualizarEstoques() {
             </div>
           </section>
 
-          <section className={styles.headerSection}>
-            <div className={styles.headerItem1}>Código</div>
-            <div className={styles.headerItem2}>Nome do item</div>
-            <div className={styles.headerItem3}>Fornecedor</div>
-            <div className={styles.headerItem4}>Uni. Medida</div>
-            <div className={styles.headerItem5}>Qtd</div>
-            <div className={styles.headerItem6}>Data de validade</div>
-          </section>
-
+          {/* Tabela de Estoques */}
           <section className={styles.tableSection}>
             <table className={styles.userTable}>
+              <thead>
+                <tr>
+                  <th className={styles.columnCodigo}>Código</th>
+                  <th className={styles.columnNome}>Nome do Item</th>
+                  <th className={styles.columnTipo}>Tipo do Item</th>
+                  <th className={styles.columnFornecedor}>Fornecedor</th>
+                  <th className={styles.columnUnidade}>Unidade de Medida</th>
+                  <th className={styles.columnQuantidade}>Quantidade</th>
+                  <th className={styles.columnValidade}>Data de Validade</th>
+                </tr>
+              </thead>
               <tbody>
                 {filteredEstoques.map((estoque, index) => (
                   <tr key={index}>
                     <td>{estoque.codigo}</td>
                     <td>{estoque.nomeItem}</td>
+                    <td>{estoque.tipoItem}</td>
                     <td>{estoque.fornecedor}</td>
                     <td>{estoque.unidadeMedida}</td>
                     <td>{estoque.quantidade}</td>

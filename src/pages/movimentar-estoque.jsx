@@ -120,7 +120,7 @@ export default function MovimentarEstoque() {
                             id="quantity"
                             name="quantity"
                             min="0"
-                            max="100"
+                            max="1000"
                             value={quantity}
                             step="0"
                             className={styles.searchInput2}

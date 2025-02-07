@@ -210,3 +210,85 @@
 .btnExcluir:hover {
     background-color: #003459;
 }
+
+
+/* Estilos responsivos para mobile */
+@media (max-width: 768px) {
+    /* Ajuste do título */
+    .h2 {
+        font-size: 1.2rem; /* Reduz tamanho do título */
+        margin-top: 100px; /* Ajusta margem do título */
+        margin-left: 20px;
+    }
+
+    /* Ajuste do container */
+    .container {
+        padding: 10px;
+    }
+
+    /* Seção de filtros */
+    .filterSection {
+        flex-direction: column;
+        align-items: center;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Estilo do input de pesquisa */
+    .searchContainer {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .searchInputContainer input {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    /* Ícone da lupa */
+    .searchIcon {
+        right: 10px;
+    }
+
+    /* Seção da tabela */
+    .tableSection {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+        border-radius: 0;
+        max-height: none;
+        overflow-x: auto;
+    }
+
+    /* Estilo da tabela */
+    .userTable {
+        width: 100%;
+    }
+
+    .userTable td, .userTable th {
+        padding: 8px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+    }
+
+    /* Melhor alinhamento dos cards da listagem */
+    .estoqueItem {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #00a7e1;
+        border-radius: 8px;
+        padding: 8px;
+        margin-bottom: 8px;
+        background: #fff;
+        width: 95%;
+        margin: 0 auto 8px auto;
+    }
+
+    /* Ajuste do rodapé */
+    .footer {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+}
