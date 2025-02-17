@@ -1,19 +1,35 @@
 "use client";
-
-import React, { useState, useEffect } from 'react';
-import Header from './components/header.jsx';
-import Footer from './components/footer.jsx';
-import styles from '../styles/vizualizar-estoques.module.css';
+import React, { useState, useEffect } from "react";
+import Header from "./components/header.jsx";
+import Footer from "./components/footer.jsx";
+import styles from "../styles/vizualizar-estoques.module.css";
+import { fetchProducts } from "../services/productService";
 
 function VisualizarEstoques() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filter, setFilter] = useState('nome');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filter, setFilter] = useState("nome");
   const [estoques, setEstoques] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Carregar os itens do LocalStorage ao montar o componente
-    const estoquesLocalStorage = JSON.parse(localStorage.getItem('estoques')) || [];
-    setEstoques(estoquesLocalStorage);
+    const loadProducts = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          alert("Erro: Usuário não autenticado.");
+          return;
+        }
+
+        const data = await fetchProducts(token);
+        setEstoques(data);
+      } catch (error) {
+        alert("Erro ao carregar produtos");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProducts();
   }, []);
 
   const handleSearchChange = (e) => {
@@ -24,24 +40,31 @@ function VisualizarEstoques() {
     setFilter(e.target.value);
   };
 
-  // Função para filtrar os estoques
+  // Filtragem de estoques
   const filteredEstoques = estoques.filter((estoque) => {
-    if (filter === 'nome') {
-      return estoque.nomeItem.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (filter === 'codigo') {
-      return estoque.codigo.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (filter === 'tipo') {
-      return estoque.tipoItem.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (filter === 'fornecedor') {
-      return estoque.fornecedor.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (filter === 'unidade') {
-      return estoque.unidadeMedida.toLowerCase().includes(searchTerm.toLowerCase());
-    } else if (filter === 'quantidade') {
-      return estoque.quantidade.toString().includes(searchTerm);
-    } else if (filter === 'validade') {
-      return estoque.validade.toLowerCase().includes(searchTerm.toLowerCase());
+    if (!estoque) return false;
+    const lowerCaseSearch = searchTerm.toLowerCase();
+
+    switch (filter) {
+      case "nome":
+        return estoque.name.toLowerCase().includes(lowerCaseSearch);
+      case "codigo":
+        return estoque.id.toString().includes(lowerCaseSearch);
+      case "tipo":
+        return estoque.itemType.toLowerCase().includes(lowerCaseSearch);
+      case "fornecedor":
+        return estoque.supplier?.toLowerCase().includes(lowerCaseSearch);
+      case "unidade":
+        return estoque.unit.toLowerCase().includes(lowerCaseSearch);
+      case "quantidade":
+        return estoque.quantity.toString().includes(lowerCaseSearch);
+      case "validade":
+        return estoque.expirationDate
+          ? new Date(estoque.expirationDate).toLocaleDateString().includes(lowerCaseSearch)
+          : false;
+      default:
+        return true;
     }
-    return true;
   });
 
   return (
@@ -49,6 +72,7 @@ function VisualizarEstoques() {
       <Header />
       <div>
         <h2 className={styles.h2}>Visualizar Estoques</h2>
+
         <main className={styles.container}>
           <section className={styles.filterSection}>
             <div className={styles.searchContainer}>
@@ -57,14 +81,11 @@ function VisualizarEstoques() {
                 <input
                   type="text"
                   id="search"
-                  name="search"
                   value={searchTerm}
                   onChange={handleSearchChange}
                 />
-                <button type="button" className={styles.searchIcon} onClick={() => console.log('Pesquisando')}>
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 96 960 960" width="24" fill="#00a7e1">
-                    <path d="M796 1006 558 768q-33 28-74 42t-84 14q-130 0-220-90T90 514q0-130 90-220t220-90q130 0 220 90t90 220q0 44-14 84t-42 74l238 238-96 96ZM400 722q83 0 141.5-58.5T600 522q0-83-58.5-141.5T400 322q-83 0-141.5 58.5T200 522q0 83 58.5 141.5T400 722Z" />
-                  </svg>
+                <button type="button" className={styles.searchIcon}>
+                  🔍
                 </button>
               </div>
             </div>
@@ -72,51 +93,62 @@ function VisualizarEstoques() {
               <label htmlFor="filter" className={styles.filterLabel}>Filtrar por</label>
               <select
                 id="filter"
-                name="filter"
                 className={styles.filterSelect}
                 value={filter}
                 onChange={handleFilterChange}
               >
-                <option className={styles.opt} value="nome">Nome do item</option>
-                <option className={styles.opt} value="codigo">Código</option>
-                <option className={styles.opt} value="tipo">Tipo do Item</option>
-                <option className={styles.opt} value="fornecedor">Fornecedor</option>
-                <option className={styles.opt} value="unidade">Unidade de Medida</option>
-                <option className={styles.opt} value="quantidade">Quantidade</option>
-                <option className={styles.opt} value="validade">Data de Validade</option>
+                <option value="nome">Nome do item</option>
+                <option value="codigo">Código</option>
+                <option value="tipo">Tipo do Item</option>
+                <option value="fornecedor">Fornecedor</option>
+                <option value="unidade">Unidade de Medida</option>
+                <option value="quantidade">Quantidade</option>
+                <option value="validade">Data de Validade</option>
               </select>
             </div>
           </section>
 
-          {/* Tabela de Estoques */}
-          <section className={styles.tableSection}>
-            <table className={styles.userTable}>
-              <thead>
-                <tr>
-                  <th className={styles.columnCodigo}>Código</th>
-                  <th className={styles.columnNome}>Nome do Item</th>
-                  <th className={styles.columnTipo}>Tipo do Item</th>
-                  <th className={styles.columnFornecedor}>Fornecedor</th>
-                  <th className={styles.columnUnidade}>Unidade de Medida</th>
-                  <th className={styles.columnQuantidade}>Quantidade</th>
-                  <th className={styles.columnValidade}>Data de Validade</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredEstoques.map((estoque, index) => (
-                  <tr key={index}>
-                    <td>{estoque.codigo}</td>
-                    <td>{estoque.nomeItem}</td>
-                    <td>{estoque.tipoItem}</td>
-                    <td>{estoque.fornecedor}</td>
-                    <td>{estoque.unidadeMedida}</td>
-                    <td>{estoque.quantidade}</td>
-                    <td>{estoque.validade}</td>
+          {/* Exibir loading enquanto os dados carregam */}
+          {loading ? (
+            <p className={styles.loading}>Carregando produtos...</p>
+          ) : (
+            <section className={styles.tableSection}>
+              <table className={styles.userTable}>
+                <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nome do Item</th>
+                    <th>Tipo do Item</th>
+                    <th>Fornecedor</th>
+                    <th>Unidade</th>
+                    <th>Quantidade</th>
+                    <th>Data de Validade</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </section>
+                </thead>
+                <tbody>
+                  {filteredEstoques.length > 0 ? (
+                    filteredEstoques.map((estoque) => (
+                      <tr key={estoque.id}>
+                        <td>{estoque.id}</td>
+                        <td>{estoque.name}</td>
+                        <td>{estoque.itemType}</td>
+                        <td>{estoque.supplier || "N/A"}</td>
+                        <td>{estoque.unit}</td>
+                        <td>{estoque.quantity}</td>
+                        <td>{estoque.expirationDate ? new Date(estoque.expirationDate).toLocaleDateString() : "Sem validade"}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="7" className={styles.noResults}>
+                        Nenhum produto encontrado
+                      </td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
+            </section>
+          )}
         </main>
       </div>
       <Footer />

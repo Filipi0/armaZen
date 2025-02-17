@@ -72,6 +72,12 @@
   color: #003459;
 }
 
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
 /* Estilos para os campos de input */
 .input {
   font-family: "Poppins-Medium";

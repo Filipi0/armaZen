@@ -2,36 +2,27 @@
 
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
+import { login } from "../services/auth";
 import styles from "../styles/login.module.css";
-import Footer from "./components/footer.jsx";
+import Footer from "../pages/components/footer.jsx";
 import Link from "next/link";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const router = useRouter(); // Inicialize o hook do router
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(""); // Garante que o estado inicial é uma string vazia
+  const router = useRouter();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    setError(""); // Resetar o erro antes de tentar o login
 
-    const response = await fetch("/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, senha }),
-    });
+    const result = await login(email, senha);
 
-    const data = await response.json();
-
-    if (response.status === 200) {
-      localStorage.setItem("authenticated", "true");
-      router.push("/"); // Redirecionar para a página principal
+    if (result.success) {
+      router.push("/"); // Redireciona para a dashboard
     } else {
-      setError(data.message);
+      setError(result.message); // Agora exibe a mensagem de erro corretamente
     }
   }
 
@@ -45,7 +36,6 @@ export default function Login() {
         <form onSubmit={handleSubmit} className={styles.form}>
           <h1 className={styles.LOGIN}>LOGIN</h1>
           <div className={styles.inputGroup}>
-            <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />
             <input
               type="email"
               placeholder="Email"
@@ -55,7 +45,6 @@ export default function Login() {
             />
           </div>
           <div className={styles.inputGroup}>
-            <FontAwesomeIcon icon={faLock} className={styles.icon} />
             <input
               type="password"
               placeholder="Senha"
@@ -64,23 +53,19 @@ export default function Login() {
               className={styles.input}
             />
           </div>
-          {error && (
-            <p
-              style={{ color: "#003459", marginLeft: "10px", marginTop: "5px" }}
-            >
-              {error}
-            </p>
-          )}
-          <Link href="recupera-senha" className={styles.forgotPassword}>
+          
+          {/* Exibir a mensagem de erro em vermelho */}
+          {error && <p className={styles.error}>{error}</p>}
+          
+          <Link href="/recupera-senha" className={styles.forgotPassword}>
             Esqueci minha senha.
           </Link>
-
           <button type="submit" className={styles.button}>
             Entrar
           </button>
         </form>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

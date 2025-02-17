@@ -1,11 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./components/header.jsx";
-import styles from "../styles/cadastroItens.module.css";
 import Footer from "./components/footer.jsx";
+import styles from "../styles/cadastroItens.module.css";
+import { createProduct } from "../services/productService";
 
 function CadastroItens() {
-  const [codigo, setCodigo] = useState("");
   const [tipoItem, setTipoItem] = useState("");
   const [fornecedor, setFornecedor] = useState("");
   const [nomeItem, setNomeItem] = useState("");
@@ -13,69 +13,55 @@ function CadastroItens() {
   const [unidadeMedida, setUnidadeMedida] = useState("caixa");
   const [validade, setValidade] = useState("");
 
-  // Função para gerar um código automaticamente
-  useEffect(() => {
-    const estoques = JSON.parse(localStorage.getItem("estoques")) || [];
-    const novoCodigo = estoques.length > 0 ? `ITM${estoques.length + 1}` : "ITM1";
-    setCodigo(novoCodigo);
-  }, []);
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const novoItem = {
-      codigo,
-      tipoItem,
-      fornecedor,
-      nomeItem,
-      quantidade,
-      unidadeMedida,
-      validade: validade || "----",
+      itemType: tipoItem,
+      supplier: fornecedor,
+      name: nomeItem,
+      quantity: parseInt(quantidade),
+      unit: unidadeMedida,
+      expirationDate: validade || null,
     };
 
-    const estoqueAtual = JSON.parse(localStorage.getItem("estoques")) || [];
-    estoqueAtual.push(novoItem);
-    localStorage.setItem("estoques", JSON.stringify(estoqueAtual));
+    try {
+      const token = localStorage.getItem("token"); // Pegando o token salvo
+      if (!token) {
+        alert("Erro: Usuário não autenticado.");
+        return;
+      }
 
-    // Gera um novo código para o próximo item
-    setCodigo(`ITM${estoqueAtual.length + 1}`);
-    setTipoItem("");
-    setFornecedor("");
-    setNomeItem("");
-    setQuantidade("");
-    setUnidadeMedida("caixa");
-    setValidade("");
+      const response = await createProduct(novoItem, token);
+      alert("Produto cadastrado com sucesso!");
+      console.log(response);
 
-    alert("Item cadastrado com sucesso!");
+      // Limpa os campos após o cadastro
+      setTipoItem("");
+      setFornecedor("");
+      setNomeItem("");
+      setQuantidade("");
+      setUnidadeMedida("caixa");
+      setValidade("");
+    } catch (error) {
+      alert("Erro ao cadastrar produto");
+    }
   };
 
   return (
     <div>
       <Header />
-
       <div>
         <h2 className={styles.h2}>Cadastro de Itens</h2>
-
         <main className={styles.container}>
           <section className={styles.formSection}>
             <form onSubmit={handleSubmit}>
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label htmlFor="codigo">Código</label>
-                  <input
-                    type="text"
-                    id="codigo"
-                    name="codigo"
-                    value={codigo}
-                    readOnly // Impede edição manual do código
-                  />
-                </div>
-                <div className={styles.formGroup}>
                   <label htmlFor="tipo-item">Tipo do Item</label>
                   <input
                     type="text"
                     id="tipo-item"
-                    name="tipo-item"
                     value={tipoItem}
                     onChange={(e) => setTipoItem(e.target.value)}
                   />
@@ -85,7 +71,6 @@ function CadastroItens() {
                   <input
                     type="text"
                     id="fornecedor"
-                    name="fornecedor"
                     placeholder="Opcional"
                     value={fornecedor}
                     onChange={(e) => setFornecedor(e.target.value)}
@@ -96,10 +81,8 @@ function CadastroItens() {
                 <div className={styles.formGroup}>
                   <label htmlFor="nome-item">Nome do item</label>
                   <input
-                    className={styles.nameItem}
                     type="text"
                     id="nome-item"
-                    name="nome-item"
                     value={nomeItem}
                     onChange={(e) => setNomeItem(e.target.value)}
                   />
@@ -109,9 +92,8 @@ function CadastroItens() {
                 <div className={styles.formGroup}>
                   <label htmlFor="quantidade">Quantidade</label>
                   <input
-                    type="text"
+                    type="number"
                     id="quantidade"
-                    name="quantidade"
                     value={quantidade}
                     onChange={(e) => setQuantidade(e.target.value)}
                   />
@@ -120,8 +102,6 @@ function CadastroItens() {
                   <label htmlFor="unidade-medida">Unidade de Medida</label>
                   <select
                     id="unidade-medida"
-                    name="unidade-medida"
-                    className={styles.select}
                     value={unidadeMedida}
                     onChange={(e) => setUnidadeMedida(e.target.value)}
                   >
@@ -131,14 +111,11 @@ function CadastroItens() {
                     <option value="metro">Metro</option>
                   </select>
                 </div>
-
                 <div className={styles.formGroup}>
                   <label htmlFor="validade">Data de Validade</label>
                   <input
-                    type="text"
+                    type="date"
                     id="validade"
-                    name="validade"
-                    placeholder="Opcional"
                     value={validade}
                     onChange={(e) => setValidade(e.target.value)}
                   />

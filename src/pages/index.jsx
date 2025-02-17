@@ -1,22 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Footer from "./components/footer.jsx";
-import Card from "./components/card.jsx";
-import Header from "./components/header";
+import Footer from "../pages/components/footer.jsx";
+import Card from "../pages/components/card.jsx";
+import Header from "../pages/components/header";
 import styles from "../styles/index.module.css";
+import { getToken } from "../utils/storage"; // Obtém o token armazenado
 
 export default function Home() {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const isAuthenticated = localStorage.getItem("authenticated");
+    const token = getToken();
 
-    if (isAuthenticated !== "true") {
-      router.replace("/login"); // Redireciona para a página de login
+    if (!token) {
+      router.replace("/login"); // Redireciona se não estiver autenticado
+    } else {
+      setIsLoading(false); // Exibe o conteúdo apenas se autenticado
     }
   }, [router]);
+
+  if (isLoading) {
+    return <p>Carregando...</p>; // Evita piscar a tela antes do redirecionamento
+  }
 
   return (
     <div className={styles.container}>
