@@ -99,18 +99,20 @@ function CadastroItens() {
                   />
                 </div>
                 <div className={styles.formGroup}>
-                  <label htmlFor="unidade-medida">Unidade de Medida</label>
-                  <select
-                    id="unidade-medida"
-                    value={unidadeMedida}
-                    onChange={(e) => setUnidadeMedida(e.target.value)}
-                  >
-                    <option value="caixa">Caixa</option>
-                    <option value="unidade">Unidade</option>
-                    <option value="litro">Litro</option>
-                    <option value="metro">Metro</option>
-                  </select>
-                </div>
+  <label htmlFor="unidade-medida">Unidade de Medida</label>
+  <select
+    id="unidade-medida"
+    className={styles.select} // Aplica a classe de estilo
+    value={unidadeMedida}
+    onChange={(e) => setUnidadeMedida(e.target.value)}
+  >
+    <option value="caixa">Caixa</option>
+    <option value="unidade">Unidade</option>
+    <option value="litro">Litro</option>
+    <option value="metro">Metro</option>
+  </select>
+</div>
+
                 <div className={styles.formGroup}>
                   <label htmlFor="validade">Data de Validade</label>
                   <input

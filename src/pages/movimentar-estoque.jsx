@@ -36,15 +36,14 @@ export default function MovimentarEstoque() {
 
   // Função para pesquisar o item pelo nome
   const handleSearch = (e) => {
-    const term = e.target.value.toLowerCase();
-    setSearchTerm(term);
-    const foundItem = estoques.find((item) => item.name.toLowerCase().includes(term));
-    if (foundItem) {
-      setSelectedItem(foundItem);
-      setQuantity(foundItem.quantity);
-    } else {
-      setSelectedItem(null);
-    }
+    setSearchTerm(e.target.value.toLowerCase());
+  };
+
+  // Selecionar um produto ao clicar
+  const handleSelectItem = (item) => {
+    setSelectedItem(item);
+    setQuantity(item.quantity);
+    setSearchTerm(item.name); // Atualiza o campo de pesquisa com o nome do item selecionado
   };
 
   // Incrementar a quantidade
@@ -118,12 +117,31 @@ export default function MovimentarEstoque() {
             <input
               type="text"
               id="search"
-              placeholder="Item que sofrerá alteração na quantidade"
+              placeholder="Buscar item..."
               className={styles.searchInput}
               value={searchTerm}
               onChange={handleSearch}
             />
           </div>
+
+          {/* Exibir produtos apenas quando o usuário começar a digitar */}
+          {searchTerm.length > 0 && (
+            <div className={styles.productList}>
+              {estoques
+                .filter((item) =>
+                  item.name.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .map((item) => (
+                  <div
+                    key={item.id}
+                    className={styles.productItem}
+                    onClick={() => handleSelectItem(item)}
+                  >
+                    <strong>{item.name}</strong> - {item.quantity} {item.unit}
+                  </div>
+                ))}
+            </div>
+          )}
 
           <label htmlFor="quantity" className={styles.searchLabel2}>Quantidade de Movimentação</label>
 

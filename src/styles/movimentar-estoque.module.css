@@ -196,6 +196,18 @@
     position: relative;
   }
 
+  .productItem {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer; /* 🟢 Torna o cursor um ponteiro ao passar o mouse */
+  }
+  
+  .productItem:hover {
+    background-color: #f0f0f0; /* Efeito de hover para destacar o item */
+  }
+  
+
   .searchInputContainer input {
     font-size: 0.9rem;
     padding: 8px 12px;
