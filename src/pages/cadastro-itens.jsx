@@ -12,6 +12,7 @@ function CadastroItens() {
   const [quantidade, setQuantidade] = useState("");
   const [unidadeMedida, setUnidadeMedida] = useState("caixa");
   const [validade, setValidade] = useState("");
+  const [showModal, setShowModal] = useState(false); // Estado do modal
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,15 +27,14 @@ function CadastroItens() {
     };
 
     try {
-      const token = localStorage.getItem("token"); // Pegando o token salvo
+      const token = localStorage.getItem("token");
       if (!token) {
         alert("Erro: Usuário não autenticado.");
         return;
       }
 
-      const response = await createProduct(novoItem, token);
-      alert("Produto cadastrado com sucesso!");
-      console.log(response);
+      await createProduct(novoItem, token);
+      setShowModal(true); // Exibe o modal de confirmação
 
       // Limpa os campos após o cadastro
       setTipoItem("");
@@ -99,20 +99,19 @@ function CadastroItens() {
                   />
                 </div>
                 <div className={styles.formGroup}>
-  <label htmlFor="unidade-medida">Unidade de Medida</label>
-  <select
-    id="unidade-medida"
-    className={styles.select} // Aplica a classe de estilo
-    value={unidadeMedida}
-    onChange={(e) => setUnidadeMedida(e.target.value)}
-  >
-    <option value="caixa">Caixa</option>
-    <option value="unidade">Unidade</option>
-    <option value="litro">Litro</option>
-    <option value="metro">Metro</option>
-  </select>
-</div>
-
+                  <label htmlFor="unidade-medida">Unidade de Medida</label>
+                  <select
+                    id="unidade-medida"
+                    className={styles.select}
+                    value={unidadeMedida}
+                    onChange={(e) => setUnidadeMedida(e.target.value)}
+                  >
+                    <option value="caixa">Caixa</option>
+                    <option value="unidade">Unidade</option>
+                    <option value="litro">Litro</option>
+                    <option value="metro">Metro</option>
+                  </select>
+                </div>
                 <div className={styles.formGroup}>
                   <label htmlFor="validade">Data de Validade</label>
                   <input
@@ -132,6 +131,20 @@ function CadastroItens() {
           </section>
         </main>
       </div>
+
+      {/* Modal de confirmação */}
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h3>Produto cadastrado com sucesso!</h3>
+            <p>O item foi adicionado ao estoque.</p>
+            <button onClick={() => setShowModal(false)} className={styles.btn}>
+              Fechar
+            </button>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </div>
   );

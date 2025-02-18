@@ -12,6 +12,8 @@ export default function MovimentarEstoque() {
   const [searchTerm, setSearchTerm] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState(""); // "save" ou "delete"
 
   useEffect(() => {
     const loadProducts = async () => {
@@ -34,75 +36,73 @@ export default function MovimentarEstoque() {
     loadProducts();
   }, []);
 
-  // Função para pesquisar o item pelo nome
   const handleSearch = (e) => {
     setSearchTerm(e.target.value.toLowerCase());
   };
 
-  // Selecionar um produto ao clicar
   const handleSelectItem = (item) => {
     setSelectedItem(item);
     setQuantity(item.quantity);
-    setSearchTerm(item.name); // Atualiza o campo de pesquisa com o nome do item selecionado
+    setSearchTerm(item.name);
   };
 
-  // Incrementar a quantidade
   const handleIncrement = () => {
     if (selectedItem) {
       setQuantity(quantity + 1);
     }
   };
 
-  // Decrementar a quantidade
   const handleDecrement = () => {
     if (selectedItem && quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
-  // Salvar a nova quantidade no banco de dados
-  const handleSave = async () => {
+  const handleSave = () => {
     if (!selectedItem) {
       alert("Selecione um item para atualizar.");
       return;
     }
-
-    try {
-      const token = localStorage.getItem("token");
-      const difference = quantity - selectedItem.quantity;
-
-      if (difference !== 0) {
-        const action = difference > 0 ? "increment" : "decrement";
-        await updateProductQuantity(selectedItem.id, action, Math.abs(difference), token);
-      }
-
-      alert("Quantidade atualizada com sucesso!");
-      setSelectedItem({ ...selectedItem, quantity });
-    } catch (error) {
-      alert(error.message);
-    }
+    setModalType("save");
+    setShowModal(true);
   };
 
-  // Excluir o produto do banco de dados
-  const handleDelete = async () => {
+  const handleDelete = () => {
     if (!selectedItem) {
       alert("Selecione um item para excluir.");
       return;
     }
+    setModalType("delete");
+    setShowModal(true);
+  };
 
-    const confirmDelete = window.confirm(`Tem certeza que deseja excluir o item "${selectedItem.name}"?`);
-    if (confirmDelete) {
-      try {
-        const token = localStorage.getItem("token");
+  const confirmAction = async () => {
+    const token = localStorage.getItem("token");
+
+    try {
+      if (modalType === "save") {
+        const difference = quantity - selectedItem.quantity;
+
+        if (difference !== 0) {
+          const action = difference > 0 ? "increment" : "decrement";
+          await updateProductQuantity(selectedItem.id, action, Math.abs(difference), token);
+        }
+
+        setSelectedItem({ ...selectedItem, quantity });
+        alert("Quantidade atualizada com sucesso!");
+      }
+
+      if (modalType === "delete") {
         await deleteProduct(selectedItem.id, token);
-
         setEstoques(estoques.filter((item) => item.id !== selectedItem.id));
         setSelectedItem(null);
         setQuantity(1);
         alert("Produto excluído com sucesso!");
-      } catch (error) {
-        alert(error.message);
       }
+    } catch (error) {
+      alert(error.message);
+    } finally {
+      setShowModal(false);
     }
   };
 
@@ -124,7 +124,6 @@ export default function MovimentarEstoque() {
             />
           </div>
 
-          {/* Exibir produtos apenas quando o usuário começar a digitar */}
           {searchTerm.length > 0 && (
             <div className={styles.productList}>
               {estoques
@@ -158,15 +157,7 @@ export default function MovimentarEstoque() {
               <path d="M11.2321 16C10.4623 17.3333 8.53775 17.3333 7.76795 16L0.406734 3.25C-0.363066 1.91667 0.599184 0.25 2.13878 0.25L16.8612 0.25C18.4008 0.25 19.3631 1.91667 18.5933 3.25L11.2321 16Z" fill="#00A7E1" />
             </svg>
 
-            <input
-              type="number"
-              id="quantity"
-              min="0"
-              max="1000"
-              value={quantity}
-              readOnly
-              className={styles.searchInput2}
-            />
+            <input type="number" id="quantity" value={quantity} readOnly className={styles.searchInput2} />
 
             <svg
               className={styles.increment}
@@ -182,15 +173,30 @@ export default function MovimentarEstoque() {
           </div>
 
           <div className={styles.buttonGroup}>
-            <button type="button" className={styles.button} onClick={handleSave}>
-              Salvar
-            </button>
-            <button type="button" className={`${styles.button} ${styles.cancel}`} onClick={handleDelete}>
-              Excluir
-            </button>
+            <button type="button" className={styles.button} onClick={handleSave}>Salvar</button>
+            <button type="button" className={`${styles.button} ${styles.cancel}`} onClick={handleDelete}>Excluir</button>
           </div>
         </section>
       </div>
+
+      {/* Modal de Confirmação */}
+      {showModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h3>{modalType === "save" ? "Confirmar Movimentação" : "Confirmar Exclusão"}</h3>
+            <p>
+              {modalType === "save"
+                ? `Deseja atualizar a quantidade do item "${selectedItem?.name}" para ${quantity}?`
+                : `Tem certeza que deseja excluir o item "${selectedItem?.name}"? Essa ação não pode ser desfeita.`}
+            </p>
+            <div className={styles.modalButtons}>
+              <button onClick={confirmAction} className={styles.modalConfirm}>Confirmar</button>
+              <button onClick={() => setShowModal(false)} className={styles.modalCancel}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer />
     </>
   );
