@@ -95,6 +95,14 @@
     font-family: 'Poppins-Medium';
 }
 
+.loading{
+    font-family: 'Poppins-Medium';
+    font-size: 1rem;
+    color: #003459;
+    margin-top: 20px;
+    margin-left: 9rem;
+}
+
 .opt{
     font-family: 'Poppins-Medium';
 }
@@ -216,8 +224,8 @@
 @media (max-width: 768px) {
     /* Ajuste do título */
     .h2 {
-        font-size: 1.2rem; /* Reduz tamanho do título */
-        margin-top: 100px; /* Ajusta margem do título */
+        font-size: 1.2rem;
+        margin-top: 100px; 
         margin-left: 20px;
     }
 

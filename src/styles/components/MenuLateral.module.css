@@ -57,3 +57,37 @@
   font-size: 1.5rem;
   color: #003459;
 }
+
+@media (min-width: 1180px) {
+  .mobileMenu {
+    position: fixed;
+    left: 0;
+    width: 70px;
+    height: 100vh;
+    transition: width 0.3s ease-in-out;
+    padding-top: 25px;
+    overflow: hidden;
+  }
+  
+  /* Quando o mouse passa sobre o menu, ele expande */
+  .mobileMenu:hover {
+    width: 250px;
+  }
+  
+  /* Links do menu */
+  .link {
+    font-size: 0;
+    padding: 15px 0px;
+    transition: font-size 0.3s;
+    justify-content: center;
+  }
+  
+  /* Quando o menu está expandido, mostra o texto */
+  .mobileMenu:hover .link {
+    font-size: 1rem;
+    justify-content: flex-start;
+    padding-left: 20px;
+    gap: 10px;
+  }
+  
+}
