@@ -10,19 +10,57 @@ import Link from "next/link";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [error, setError] = useState(""); // Garante que o estado inicial é uma string vazia
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [emailError, setEmailError] = useState(""); 
   const router = useRouter();
+
+  // Função para validar o formato do e-mail
+  function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Validação em tempo real
+  function handleEmailChange(e) {
+    const newEmail = e.target.value;
+    setEmail(newEmail);
+
+    if (newEmail === "" || isValidEmail(newEmail)) {
+      setEmailError("");
+    } else {
+      setEmailError("Formato de e-mail inválido.");
+    }
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError(""); // Resetar o erro antes de tentar o login
+    setError("");
+    
+    if (!isValidEmail(email)) {
+      setEmailError("Formato de e-mail inválido.");
+      return;
+    }
 
-    const result = await login(email, senha);
+    setLoading(true);
+    const timeout = setTimeout(() => {
+      setError("Tempo limite excedido! O servidor pode estar fora do ar.");
+      setLoading(false);
+    }, 15000); 
 
-    if (result.success) {
-      router.push("/"); // Redireciona para a dashboard
-    } else {
-      setError(result.message); // Agora exibe a mensagem de erro corretamente
+    try {
+      const result = await login(email, senha);
+      clearTimeout(timeout);
+
+      if (result.success) {
+        router.push("/");
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setError("Erro ao tentar fazer login. Tente novamente.");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -37,12 +75,14 @@ export default function Login() {
           <h1 className={styles.LOGIN}>LOGIN</h1>
           <div className={styles.inputGroup}>
             <input
-              type="email"
+              type="text" 
               placeholder="Email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={handleEmailChange}
               className={styles.input}
+              disabled={loading}
             />
+            {emailError && <p className={styles.error}>{emailError}</p>}
           </div>
           <div className={styles.inputGroup}>
             <input
@@ -51,17 +91,18 @@ export default function Login() {
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               className={styles.input}
+              disabled={loading}
             />
           </div>
-          
-          {/* Exibir a mensagem de erro em vermelho */}
+
+          {/* Exibir mensagem de erro*/}
           {error && <p className={styles.error}>{error}</p>}
-          
+
           <Link href="/recupera-senha" className={styles.forgotPassword}>
             Esqueci minha senha.
           </Link>
-          <button type="submit" className={styles.button}>
-            Entrar
+          <button type="submit" className={styles.button} disabled={loading}>
+            {loading ? "Aguarde..." : "Entrar"}
           </button>
         </form>
       </div>
