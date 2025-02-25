@@ -85,6 +85,7 @@ function CadastroItens() {
                     id="nome-item"
                     value={nomeItem}
                     onChange={(e) => setNomeItem(e.target.value)}
+                    
                   />
                 </div>
               </div>

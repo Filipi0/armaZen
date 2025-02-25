@@ -27,7 +27,7 @@
 }
 
 .menuIcon {
-  cursor: pointer; /* Faz com que o cursor fique no formato de clique */
+  cursor: pointer;
   height: 20px;
   padding-right: 25px;
 }
@@ -87,4 +87,5 @@
   .logoutIcon {
     padding-right: 10px;
   }
+
 }

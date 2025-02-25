@@ -72,6 +72,14 @@
     cursor: pointer;
 }
 
+.loading{
+    font-family: 'Poppins-Medium';
+    font-size: 1rem;
+    color: #003459;
+    margin-top: 20px;
+    margin-left: 9rem;
+}
+
 /* Estilo para o campo de filtro */
 .filterContainer {
     display: flex;
