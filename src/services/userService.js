@@ -5,7 +5,7 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL;
 /**
  * Cadastra um novo usuário.
  * @param {Object} userData
- * @returns {Promise<Object>} - Resposta do servidor
+ * @returns {Promise<Object>}
  */
 export const registerUser = async (userData) => {
   const token = getToken();
@@ -16,7 +16,7 @@ export const registerUser = async (userData) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // Adiciona o token aqui
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(userData),
     });
@@ -31,7 +31,6 @@ export const registerUser = async (userData) => {
     throw new Error(error.message || "Erro ao conectar ao servidor");
   }
 };
-
 
 /**
  * Faz login do usuário.
@@ -105,7 +104,7 @@ export const deleteUser = async (userId, token) => {
 };
 
 /**
- * Atualiza a senha do usuário.
+ * Atualiza a senha do usuário logado.
  * @param {string} userId - ID do usuário
  * @param {string} newPassword - Nova senha
  * @param {string} token - Token de autenticação
@@ -132,3 +131,54 @@ export const updatePassword = async (userId, newPassword, token) => {
     throw new Error(error.message || "Erro ao conectar ao servidor");
   }
 };
+
+/**
+ * Envia um email de recuperação de senha.
+ * @param {string} email - Email do usuário
+ * @returns {Promise<Object>} - Resposta do servidor
+ */
+export const forgotPassword = async (email) => {
+  try {
+    const response = await fetch(`${API_URL}/forgot-password`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || "Erro ao enviar email de recuperação");
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw new Error(error.message || "Erro ao conectar ao servidor");
+  }
+};
+
+/**
+ * Redefine a senha do usuário com base no token de recuperação.
+ * @param {string} token - Token de recuperação
+ * @param {string} newPassword - Nova senha
+ * @returns {Promise<Object>} - Resposta do servidor
+ */
+export const resetPassword = async (token, newPassword) => {
+  try {
+    const response = await fetch(`${API_URL}/reset-password`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token, newPassword }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || "Erro ao redefinir senha");
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw new Error(error.message || "Erro ao conectar ao servidor");
+  }
+};
+
+

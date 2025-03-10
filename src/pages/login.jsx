@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { login } from "../services/auth";
 import styles from "../styles/login.module.css";
 import Footer from "../pages/components/footer.jsx";
@@ -15,13 +15,12 @@ export default function Login() {
   const [emailError, setEmailError] = useState(""); 
   const router = useRouter();
 
-  // Função para validar o formato do e-mail
+  // Validação do email
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   }
 
-  // Validação em tempo real
   function handleEmailChange(e) {
     const newEmail = e.target.value;
     setEmail(newEmail);
@@ -36,7 +35,7 @@ export default function Login() {
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
-    
+
     if (!isValidEmail(email)) {
       setEmailError("Formato de e-mail inválido.");
       return;
@@ -46,7 +45,7 @@ export default function Login() {
     const timeout = setTimeout(() => {
       setError("Tempo limite excedido! O servidor pode estar fora do ar.");
       setLoading(false);
-    }, 15000); 
+    }, 15000);
 
     try {
       const result = await login(email, senha);
@@ -75,7 +74,7 @@ export default function Login() {
           <h1 className={styles.LOGIN}>LOGIN</h1>
           <div className={styles.inputGroup}>
             <input
-              type="text" 
+              type="text"
               placeholder="Email"
               value={email}
               onChange={handleEmailChange}
@@ -95,10 +94,10 @@ export default function Login() {
             />
           </div>
 
-          {/* Exibir mensagem de erro*/}
           {error && <p className={styles.error}>{error}</p>}
 
-          <Link href="/recupera-senha" className={styles.forgotPassword}>
+          {/* 🔹 Agora o link direciona para a tela de recuperação de senha */}
+          <Link href="/esqueci-senha" className={styles.forgotPassword}>
             Esqueci minha senha.
           </Link>
           <button type="submit" className={styles.button} disabled={loading}>

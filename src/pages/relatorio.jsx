@@ -70,7 +70,7 @@ export default function Relatorio() {
 
       <div className={styles.container}>
         {loading ? (
-          <p>Carregando...</p>
+          <p className={styles.loading}>Carregando...</p>
         ) : (
           categories.map((category) => (
             <Card

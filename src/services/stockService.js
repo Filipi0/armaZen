@@ -16,7 +16,7 @@ export const fetchStockSummary = async (token) => {
 
     return await response.json();
   } catch (error) {
-    console.error("🚨 Erro ao buscar resumo do estoque:", error.message);
+    console.error("Erro ao buscar resumo do estoque:", error.message);
     throw error;
   }
 };
@@ -43,7 +43,7 @@ export const fetchStockDetails = async (filterType, token) => {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error(`🚨 Erro ${response.status}: ${errorText}`);
+      console.error(`Erro ${response.status}: ${errorText}`);
       throw new Error(`Erro ${response.status}: ${errorText}`);
     }
 

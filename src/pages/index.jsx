@@ -12,22 +12,34 @@ import { fetchStockDetails } from "../services/stockService";
 export default function Home() {
   const router = useRouter();
 
+  // Estados para itens perto do vencimento
   const [nearExpirationItems, setNearExpirationItems] = useState([]);
   const [nearExpirationCount, setNearExpirationCount] = useState(0);
   const [loadingNearExpiration, setLoadingNearExpiration] = useState(true);
 
+  // Estados para itens de baixo estoque
   const [lowStockItems, setLowStockItems] = useState([]);
   const [lowStockCount, setLowStockCount] = useState(0);
-  const [loadingLowStock, setLoadingLowStock] = useState(true); 
+  const [loadingLowStock, setLoadingLowStock] = useState(true);
+
+  // Estados para itens expirados no mês
+  const [expiredThisMonthItems, setExpiredThisMonthItems] = useState([]);
+  const [expiredThisMonthCount, setExpiredThisMonthCount] = useState(0);
+  const [loadingExpiredThisMonth, setLoadingExpiredThisMonth] = useState(true);
 
   useEffect(() => {
     const token = getToken();
     if (!token) {
       router.replace("/login");
     } else {
-      // Busca os dois filtros simultaneamente
-      fetchStockDetails("near-expiration", token)
-        .then((nearData) => {
+      // Buscar os itens simultaneamente
+      Promise.all([
+        fetchStockDetails("near-expiration", token),
+        fetchStockDetails("low-stock", token),
+        fetchStockDetails("expired-this-month", token),
+      ])
+        .then(([nearData, lowData, expiredThisMonthData]) => {
+          // Processa os itens perto do vencimento
           let nearItems = [];
           let nearCount = 0;
           if (Array.isArray(nearData)) {
@@ -44,14 +56,9 @@ export default function Home() {
           }
           setNearExpirationItems(nearItems);
           setNearExpirationCount(nearCount);
-        })
-        .catch((error) => {
-          console.error("Erro ao buscar itens perto do vencimento:", error);
-        })
-        .finally(() => setLoadingNearExpiration(false)); 
+          setLoadingNearExpiration(false);
 
-      fetchStockDetails("low-stock", token)
-        .then((lowData) => {
+          // Processa os itens prestes a esgotar
           let lowItems = [];
           let lowCount = 0;
           if (Array.isArray(lowData)) {
@@ -66,11 +73,33 @@ export default function Home() {
           }
           setLowStockItems(lowItems);
           setLowStockCount(lowCount);
+          setLoadingLowStock(false);
+
+          // Processa os itens expirados no mês
+          let expiredItems = [];
+          let expiredCount = 0;
+          if (Array.isArray(expiredThisMonthData)) {
+            expiredItems = expiredThisMonthData.map(
+              (product) =>
+                `${product.id} - ${product.name} - expirou em ${new Date(
+                  product.expirationDate
+                ).toLocaleDateString()}`
+            );
+            expiredCount = expiredThisMonthData.length;
+          } else if (expiredThisMonthData.message) {
+            console.log(
+              "Mensagem da API (expired-this-month):",
+              expiredThisMonthData.message
+            );
+            expiredItems = [expiredThisMonthData.message];
+          }
+          setExpiredThisMonthItems(expiredItems);
+          setExpiredThisMonthCount(expiredCount);
+          setLoadingExpiredThisMonth(false);
         })
         .catch((error) => {
-          console.error("Erro ao buscar itens prestes a esgotar:", error);
-        })
-        .finally(() => setLoadingLowStock(false));
+          console.error("Erro ao buscar dados do estoque:", error);
+        });
     }
   }, [router]);
 
@@ -120,6 +149,28 @@ export default function Home() {
                     </span>,
                   ]
                 : lowStockItems
+            }
+          />
+
+          <Card
+            titleCollapsed="Itens expirados neste mês"
+            count={
+              loadingExpiredThisMonth ? (
+                <span style={{ fontSize: "15px", color: "#666" }}>
+                  Carregando...
+                </span>
+              ) : (
+                expiredThisMonthCount
+              )
+            }
+            items={
+              loadingExpiredThisMonth
+                ? [
+                    <span style={{ fontSize: "15px", color: "#666" }}>
+                      Carregando...
+                    </span>,
+                  ]
+                : expiredThisMonthItems
             }
           />
         </div>
