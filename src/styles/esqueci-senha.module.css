@@ -111,3 +111,9 @@
     background-color: #003459;
     color: floralwhite;
 }
+
+.successMessage {
+    color: #003459;
+    font-size: 0.9rem;
+    margin-top: 15px;
+}

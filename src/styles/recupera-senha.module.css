@@ -1,3 +1,14 @@
+/*
+:root {
+    --cor1: #fffaff;
+    --cor2: #dfe3eb;
+    --cor3: #00a7e1;
+    --cor4: #003459;
+    --cor5: #00171f;
+}
+*/
+
+
 .container {
     display: flex;
     justify-content: center;
@@ -8,10 +19,12 @@
   
   .card {
     background: #fff;
-    padding: 25px;
-    border-radius: 8px;
+    padding: 75px;
+    border-radius: 16px;
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
     text-align: center;
+    max-width: 500px;
+    width: 100%;
   }
   
   .title {
@@ -32,15 +45,54 @@
   }
   
   .input {
-    width: 100%;
+    max-width: 100%;
+    width: 95%;
     padding: 10px;
     border: 1px solid #bbb;
     border-radius: 5px;
+    font-size: 16px;
+    
+  }
+
+  .inputGroup {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
   }
   
+  .passwordWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .eyeButton {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .eyeButton img {
+    width: 24px;
+    height: 24px;
+  }
+  
+
+  
   .submitButton {
-    background-color: #007bff;
+    background-color: #00a7e1;
     color: white;
+    margin-top: 20px;
     padding: 12px 18px;
     border: none;
     border-radius: 5px;

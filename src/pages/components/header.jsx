@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter } from "next/navigation"; // Corrigido para "next/navigation"
+import { useRouter } from "next/navigation";
 import Menu from "./menuLateral";
 import styles from "../../styles/components/header.module.css";
 

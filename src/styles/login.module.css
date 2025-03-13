@@ -92,6 +92,19 @@
   color: black;
 }
 
+.eyeButton {
+  position: absolute;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.eyeButton img {
+  width: 24px;
+  height: 24px;
+}
+
 /* Estilos para o botão de Entrar */
 .button {
   font-family: "Poppins-Medium";

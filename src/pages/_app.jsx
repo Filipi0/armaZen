@@ -1,22 +1,30 @@
 import "@/styles/globals.css";
-import Login from "./login.jsx";
-import Menu from './index.jsx';
-import CadastroItens from './cadastro-itens.jsx';
-import CadastroUsuarios from './cadastro-usuarios.jsx';
-import VisualizarUsuarios from "./vizualizar-usuario.jsx";
-import VisualizarEstoques from "./vizualizar-estoques.jsx";
-import MovimentarEstoque from "./movimentar-estoque.jsx";
-import RecuperaSenha from "./recupera-senha.jsx";
-import Relatorio from "./relatorio.jsx";
 
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
-export default function App({ Component, pageProps }) {
-    return <>
-        <Component {...pageProps} />
-    </>
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const token = localStorage.getItem('token'); 
+
+      if (!token) {
+        setIsAuthenticated(false);
+        router.push('/login');
+      } else {
+        setIsAuthenticated(true);
+      }
+    }
+  }, [router]);
+
+  if (isAuthenticated === null) {
+    return <div>Carregando...</div>;
+  }
+
+  return <Component {...pageProps} />;
 }
 
-
-// export default function App({ Component, pageProps }) {
-//     return <Menu />;
-// }
+export default MyApp;

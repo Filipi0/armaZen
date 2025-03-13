@@ -6,6 +6,7 @@ import { login } from "../services/auth";
 import styles from "../styles/login.module.css";
 import Footer from "../pages/components/footer.jsx";
 import Link from "next/link";
+import Image from "next/image"; 
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -13,6 +14,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [emailError, setEmailError] = useState(""); 
+  const [showPassword, setShowPassword] = useState(false); 
   const router = useRouter();
 
   // Validação do email
@@ -83,20 +85,33 @@ export default function Login() {
             />
             {emailError && <p className={styles.error}>{emailError}</p>}
           </div>
+
           <div className={styles.inputGroup}>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               placeholder="Senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}
               className={styles.input}
               disabled={loading}
             />
+
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className={styles.eyeButton}
+            >
+              <Image
+                src="/eye.png"
+                alt="Mostrar senha"
+                width={24}
+                height={24}
+              />
+            </button>
           </div>
 
           {error && <p className={styles.error}>{error}</p>}
 
-          {/* 🔹 Agora o link direciona para a tela de recuperação de senha */}
           <Link href="/esqueci-senha" className={styles.forgotPassword}>
             Esqueci minha senha.
           </Link>

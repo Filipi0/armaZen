@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { resetPassword } from "../services/userService";
 import styles from "../styles/recupera-senha.module.css";
 import Footer from "./components/footer.jsx";
+import Image from "next/image";
 
 export default function RecuperaSenha() {
   const searchParams = useSearchParams();
@@ -13,6 +14,8 @@ export default function RecuperaSenha() {
 
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -32,8 +35,8 @@ export default function RecuperaSenha() {
       return;
     }
 
-    if (newPassword.length < 6) {
-      setError("A senha deve ter pelo menos 6 caracteres.");
+    if (newPassword.length < 4) {
+      setError("A senha deve ter pelo menos 4 caracteres.");
       return;
     }
 
@@ -47,7 +50,6 @@ export default function RecuperaSenha() {
       const response = await resetPassword(token, newPassword);
       setMessage(response.message);
 
-      // Redirecionar para login após sucesso
       setTimeout(() => {
         router.push("/login");
       }, 3000);
@@ -72,33 +74,65 @@ export default function RecuperaSenha() {
                 <label className={styles.label} htmlFor="newPassword">
                   Nova Senha:
                 </label>
-                <input
-                  type="password"
-                  id="newPassword"
-                  name="newPassword"
-                  className={styles.input}
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  required
-                />
+                <div className={styles.passwordWrapper}>
+                  <input
+                    type={showNewPassword ? "text" : "password"}
+                    id="newPassword"
+                    name="newPassword"
+                    className={styles.input}
+                    value={newPassword}
+                    onChange={(e) => setNewPassword(e.target.value)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className={styles.eyeButton}
+                    onClick={() => setShowNewPassword(!showNewPassword)}
+                  >
+                    <Image
+                      src="/eye.png"
+                      alt="Mostrar senha"
+                      width={24}
+                      height={24}
+                    />
+                  </button>
+                </div>
               </div>
 
               <div className={styles.inputGroup}>
                 <label className={styles.label} htmlFor="confirmPassword">
                   Confirmar Senha:
                 </label>
-                <input
-                  type="password"
-                  id="confirmPassword"
-                  name="confirmPassword"
-                  className={styles.input}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                />
+                <div className={styles.passwordWrapper}>
+                  <input
+                    type={showConfirmPassword ? "text" : "password"}
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    className={styles.input}
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                    required
+                  />
+                  <button
+                    type="button"
+                    className={styles.eyeButton}
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                  >
+                    <Image
+                      src="/eye.png"
+                      alt="Mostrar senha"
+                      width={24}
+                      height={24}
+                    />
+                  </button>
+                </div>
               </div>
 
-              <button type="submit" className={styles.submitButton} disabled={loading}>
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={loading}
+              >
                 {loading ? "Alterando..." : "Alterar Senha"}
               </button>
             </form>

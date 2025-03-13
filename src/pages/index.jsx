@@ -1,16 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Footer from "../pages/components/footer.jsx";
 import Card from "../pages/components/card.jsx";
 import Header from "../pages/components/header";
 import styles from "../styles/index.module.css";
-import { getToken } from "../utils/storage";
+import { getToken, removeToken } from "../utils/storage"; // Adicionei removeToken
 import { fetchStockDetails } from "../services/stockService";
 
 export default function Home() {
   const router = useRouter();
+  const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado do modal de logout
 
   // Estados para itens perto do vencimento
   const [nearExpirationItems, setNearExpirationItems] = useState([]);
@@ -32,69 +33,26 @@ export default function Home() {
     if (!token) {
       router.replace("/login");
     } else {
-      // Buscar os itens simultaneamente
       Promise.all([
         fetchStockDetails("near-expiration", token),
         fetchStockDetails("low-stock", token),
         fetchStockDetails("expired-this-month", token),
       ])
         .then(([nearData, lowData, expiredThisMonthData]) => {
-          // Processa os itens perto do vencimento
-          let nearItems = [];
-          let nearCount = 0;
-          if (Array.isArray(nearData)) {
-            nearItems = nearData.map(
-              (product) =>
-                `${product.id} - ${product.name} - expira em ${new Date(
-                  product.expirationDate
-                ).toLocaleDateString()}`
-            );
-            nearCount = nearData.length;
-          } else if (nearData.message) {
-            console.log("Mensagem da API (near-expiration):", nearData.message);
-            nearItems = [nearData.message];
-          }
-          setNearExpirationItems(nearItems);
-          setNearExpirationCount(nearCount);
+          setNearExpirationItems(Array.isArray(nearData) ? nearData : []);
+          setNearExpirationCount(Array.isArray(nearData) ? nearData.length : 0);
           setLoadingNearExpiration(false);
 
-          // Processa os itens prestes a esgotar
-          let lowItems = [];
-          let lowCount = 0;
-          if (Array.isArray(lowData)) {
-            lowItems = lowData.map(
-              (product) =>
-                `${product.id} - ${product.name} - ${product.quantity} unidades`
-            );
-            lowCount = lowData.length;
-          } else if (lowData.message) {
-            console.log("Mensagem da API (low-stock):", lowData.message);
-            lowItems = [lowData.message];
-          }
-          setLowStockItems(lowItems);
-          setLowStockCount(lowCount);
+          setLowStockItems(Array.isArray(lowData) ? lowData : []);
+          setLowStockCount(Array.isArray(lowData) ? lowData.length : 0);
           setLoadingLowStock(false);
 
-          // Processa os itens expirados no mês
-          let expiredItems = [];
-          let expiredCount = 0;
-          if (Array.isArray(expiredThisMonthData)) {
-            expiredItems = expiredThisMonthData.map(
-              (product) =>
-                `${product.id} - ${product.name} - expirou em ${new Date(
-                  product.expirationDate
-                ).toLocaleDateString()}`
-            );
-            expiredCount = expiredThisMonthData.length;
-          } else if (expiredThisMonthData.message) {
-            console.log(
-              "Mensagem da API (expired-this-month):",
-              expiredThisMonthData.message
-            );
-            expiredItems = [expiredThisMonthData.message];
-          }
-          setExpiredThisMonthItems(expiredItems);
-          setExpiredThisMonthCount(expiredCount);
+          setExpiredThisMonthItems(
+            Array.isArray(expiredThisMonthData) ? expiredThisMonthData : []
+          );
+          setExpiredThisMonthCount(
+            Array.isArray(expiredThisMonthData) ? expiredThisMonthData.length : 0
+          );
           setLoadingExpiredThisMonth(false);
         })
         .catch((error) => {
@@ -103,79 +61,57 @@ export default function Home() {
     }
   }, [router]);
 
+  function handleLogout() {
+    setShowLogoutModal(true);
+  }
+
+  function confirmLogout() {
+    removeToken(); // Remove o token de autenticação
+    router.replace("/login");
+  }
+
   return (
     <div className={styles.container}>
-      <Header />
+      <Header onLogout={handleLogout} /> {/* Passando a função para o Header */}
+      
       <div className={styles.rightSide}>
-        <div>
-          <Card
-            titleCollapsed="Itens perto do vencimento"
-            count={
-              loadingNearExpiration ? (
-                <span style={{ fontSize: "15px", color: "#666" }}>
-                  Carregando...
-                </span>
-              ) : (
-                nearExpirationCount
-              )
-            }
-            items={
-              loadingNearExpiration
-                ? [
-                    <span style={{ fontSize: "15px", color: "#666" }}>
-                      Carregando...
-                    </span>,
-                  ]
-                : nearExpirationItems
-            }
-          />
+        <Card
+          titleCollapsed="Itens perto do vencimento"
+          count={loadingNearExpiration ? "Carregando..." : nearExpirationCount}
+          items={loadingNearExpiration ? ["Carregando..."] : nearExpirationItems}
+        />
 
-          <Card
-            titleCollapsed="Itens prestes a esgotar"
-            count={
-              loadingLowStock ? (
-                <span style={{ fontSize: "15px", color: "#666" }}>
-                  Carregando...
-                </span>
-              ) : (
-                lowStockCount
-              )
-            }
-            items={
-              loadingLowStock
-                ? [
-                    <span style={{ fontSize: "15px", color: "#666" }}>
-                      Carregando...
-                    </span>,
-                  ]
-                : lowStockItems
-            }
-          />
+        <Card
+          titleCollapsed="Itens prestes a esgotar"
+          count={loadingLowStock ? "Carregando..." : lowStockCount}
+          items={loadingLowStock ? ["Carregando..."] : lowStockItems}
+        />
 
-          <Card
-            titleCollapsed="Itens expirados neste mês"
-            count={
-              loadingExpiredThisMonth ? (
-                <span style={{ fontSize: "15px", color: "#666" }}>
-                  Carregando...
-                </span>
-              ) : (
-                expiredThisMonthCount
-              )
-            }
-            items={
-              loadingExpiredThisMonth
-                ? [
-                    <span style={{ fontSize: "15px", color: "#666" }}>
-                      Carregando...
-                    </span>,
-                  ]
-                : expiredThisMonthItems
-            }
-          />
-        </div>
+        <Card
+          titleCollapsed="Itens expirados neste mês"
+          count={loadingExpiredThisMonth ? "Carregando..." : expiredThisMonthCount}
+          items={loadingExpiredThisMonth ? ["Carregando..."] : expiredThisMonthItems}
+        />
       </div>
+
       <Footer />
+
+      {/* Modal de confirmação de logout */}
+      {showLogoutModal && (
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
+            <h2>Deseja realmente sair?</h2>
+            <div className={styles.modalButtons}>
+              <button onClick={confirmLogout} className={styles.confirmButton}>
+                Sim, sair
+              </button>
+              <button onClick={() => setShowLogoutModal(false)} className={styles.cancelButton}>
+                Cancelar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
