@@ -107,30 +107,39 @@
   text-align: center;
 }
 
-/* Botões de Incremento e Decremento */
-.increment {
-  cursor: pointer;
-  width: 15px;
-  height: 25px;
-  position: absolute;
-  z-index: 1;
+/* Alinhar labels e inputs lado a lado */
+.flexRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 15px;
 }
 
-.decrement {
-  cursor: pointer;
-  width: 15px;
-  height: 25px;
-  position: absolute;
-  height: 25px;
+.flexRow label {
+  font-size: 1.2rem;
+  color: #003459;
 }
 
-/* Ajuste de posição dos ícones */
-.increment {
-  right: 300px;
+.flexRow input{
+  width: 100%;
+  max-width: 200px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 2px solid #00a7e1;
+  font-size: 1rem;
+  text-align: center;
 }
 
-.decrement {
-  left: 300px;
+.flexRow select{
+  width: 100%;
+  max-width: 200px;
+  padding: 6px 14px;
+  border-radius: 30px;
+  border: 2px solid #00a7e1;
+  font-size: 1rem;
+  text-align: center;
+  
 }
 
 /* Botões de Ação */
@@ -159,93 +168,6 @@
 .button:hover {
   background-color: #003459;
   color: #00a7e1;
-}
-
-/* Ajustes para Mobile */
-@media (max-width: 768px) {
-  /* Ajuste do título */
-  .h2 {
-    font-size: 1.2rem;
-    margin-top: 100px;
-    margin-left: 10%;
-    text-align: left;
-  }
-
-  /* Ajuste da Seção de Pesquisa */
-  .searchContainer {
-    width: 85%;
-    margin: 0 auto;
-  }
-
-  /* Estilização das Labels */
-  .searchLabel {
-    display: block;
-    font-size: 0.9rem;
-    color: #003459;
-    margin-bottom: 10px;
-    text-align: left;
-    padding-left: 10px;
-    font-weight: bold; /* Igual ao outro design */
-  }
-
-  /* Campo de Pesquisa */
-  .searchInputContainer {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .productItem {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    transition: background-color 0.2s ease-in-out;
-    cursor: pointer; /* 🟢 Torna o cursor um ponteiro ao passar o mouse */
-  }
-  
-  .productItem:hover {
-    background-color: #f0f0f0; /* Efeito de hover para destacar o item */
-  }
-  
-
-  .searchInputContainer input {
-    font-size: 0.9rem;
-    padding: 8px 12px;
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid #00a7e1;
-    background-color: white;
-    color: #003459;
-  }
-
-  /* Ícone de pesquisa */
-  .searchIcon {
-    position: absolute;
-    right: 10px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* Ajuste do filtro para combinar com o outro estilo */
-  .filterLabel {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #003459;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-
-  .filterSelect {
-    font-size: 0.9rem;
-    padding: 6px 10px;
-    width: 100%;
-    border-radius: 10px;
-    border: 2px solid #00a7e1;
-    background-color: white;
-    color: #003459;
-  }
 }
 
 .modalOverlay {

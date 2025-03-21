@@ -1,4 +1,5 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL + "/products";
+const API_URL2 = process.env.NEXT_PUBLIC_API_URL + "/stock";
 
 /**
  * Cadastra um novo produto na API
@@ -118,6 +119,72 @@ export const updateProductQuantity = async (
     return await response.json();
   } catch (error) {
     console.error("Erro ao atualizar quantidade:", error.message);
+    throw error;
+  }
+};
+
+/**
+ * Registra uma movimentação de estoque
+ * @param {string} productId - ID do produto movimentado
+ * @param {string} movementType - 'entrada' ou 'saida'
+ * @param {number} quantity - Quantidade movimentada
+ * @param {string} token - Token JWT para autenticação
+ * @returns {Promise<Object>} - Resposta da API
+ */
+export const moveStock = async (productId, movementType, quantity, token) => {
+  try {
+    const response = await fetch(`${API_URL2}/move`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ productId, movementType, quantity }),
+    });
+
+    // Se a resposta não for 200 (OK), tenta converter o erro para JSON
+    if (!response.ok) {
+      const errorResponse = await response.text(); // Alterado de `response.json()` para `response.text()`
+      try {
+        const parsedError = JSON.parse(errorResponse);
+        throw new Error(parsedError.error || "Erro desconhecido ao movimentar estoque");
+      } catch {
+        throw new Error(`Erro na API: ${response.status} - ${errorResponse}`);
+      }
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Erro ao movimentar estoque:", error.message);
+    throw error;
+  }
+};
+
+
+
+/**
+ * Obtém a lista de movimentações do estoque
+ * @param {string} token - Token JWT para autenticação
+ * @returns {Promise<Array>} - Lista de movimentações
+ */
+export const fetchMovements = async (token) => {
+  try {
+    const response = await fetch(`${API_URL2}/movements`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!response.ok) {
+      const errorResponse = await response.json();
+      throw new Error(errorResponse.error || "Erro ao buscar movimentações");
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Erro ao buscar movimentações:", error.message);
     throw error;
   }
 };

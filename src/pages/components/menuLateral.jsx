@@ -33,6 +33,12 @@ export default function Menu({ isOpen, toggleMenu }) {
           <span>Visualizar Usuários</span>
         </Link>
 
+        <Link href="/visualizar-movimentacoes" className={styles.link} onClick={toggleMenu}>
+          <Image src="/movimentacoes.png" alt="Movimentações" width={24} height={24} />
+          <span>Movimentações</span>
+        
+        </Link>
+
         <Link href="/relatorio" className={styles.link} onClick={toggleMenu}>
           <Image src="/icons/relatorio.png" alt="Relatório" width={24} height={24} />
           <span>Relatório</span>

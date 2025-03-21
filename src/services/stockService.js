@@ -55,3 +55,4 @@ export const fetchStockDetails = async (filterType, token) => {
     throw error;
   }
 };
+
