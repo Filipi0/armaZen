@@ -28,19 +28,16 @@ export default function Header() {
             <Image src="/menu.png" alt="Menu" width={23} height={20} />
           </div>
 
-          {/* LOGO */}
           <h1 className={styles.logo}>
             <Link href="/">ArmaZen</Link>
           </h1>
 
-          {/* ÍCONE DE LOGOUT */}
           <div className={styles.logoutIcon} onClick={handleLogout}>
             <Image src="/logout.png" alt="Log off" width={30} height={25} />
           </div>
         </div>
       </header>
 
-      {/* Componente de Menu Mobile */}
       <Menu isOpen={menuOpen} toggleMenu={toggleMenu} />
     </>
   );
