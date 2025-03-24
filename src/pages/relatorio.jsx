@@ -15,7 +15,6 @@ export default function Relatorio() {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
-  // Lista de categorias
   const categories = [
     { key: "low-stock", label: "Itens prestes a esgotar" },
     { key: "near-expiration", label: "Itens perto do vencimento" },
@@ -40,7 +39,6 @@ export default function Relatorio() {
         console.log("Resumo do estoque recebido:", summaryData);
         setSummary(summaryData);
 
-        // Buscar detalhes de todas as categorias
         const detailsData = {};
         for (const category of categories) {
           console.log(`Buscando detalhes para '${category.key}'...`);
