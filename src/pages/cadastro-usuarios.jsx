@@ -8,20 +8,19 @@ import { registerUser } from "../services/userService";
 function CadastroUsuarios() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState(""); // Novo estado para o nome
+  const [name, setName] = useState(""); 
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    const userData = { email, password, name }; // Inclui o name
+    const userData = { email, password, name };
 
     try {
       const response = await registerUser(userData);
       alert(response.message || "Usuário cadastrado com sucesso!");
 
-      // Limpar os campos após o cadastro
       setEmail("");
       setPassword("");
       setName("");
@@ -75,7 +74,7 @@ function CadastroUsuarios() {
                     type="text"
                     id="name"
                     name="name"
-                    value={name} // Vincula o estado name
+                    value={name} 
                     onChange={(e) => setName(e.target.value)}
                     required
                   />
