@@ -9,7 +9,7 @@ export default function MovimentarEstoque() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const [quantity, setQuantity] = useState(0);
-  const [movementType, setMovementType] = useState("entrada"); // Estado para entrada ou saída
+  const [movementType, setMovementType] = useState("entrada"); 
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState("");
@@ -39,7 +39,7 @@ export default function MovimentarEstoque() {
 
   const handleSelectItem = (item) => {
     setSelectedItem(item);
-    setQuantity(1); // Sempre começar com 1 na movimentação
+    setQuantity(1); 
     setSearchTerm(item.name);
   };
 
@@ -66,7 +66,6 @@ export default function MovimentarEstoque() {
         await moveStock(selectedItem.id, movementType, quantity, token);
         alert("Movimentação registrada com sucesso!");
   
-        // Atualizar quantidade localmente
         setEstoques((prevEstoques) =>
           prevEstoques.map((item) =>
             item.id === selectedItem.id
