@@ -6,24 +6,21 @@ import Footer from "../pages/components/footer.jsx";
 import Card from "../pages/components/card.jsx";
 import Header from "../pages/components/header";
 import styles from "../styles/index.module.css";
-import { getToken, removeToken } from "../utils/storage"; // Adicionei removeToken
+import { getToken, removeToken } from "../utils/storage"; 
 import { fetchStockDetails } from "../services/stockService";
 
 export default function Home() {
   const router = useRouter();
-  const [showLogoutModal, setShowLogoutModal] = useState(false); // Estado do modal de logout
+  const [showLogoutModal, setShowLogoutModal] = useState(false); 
 
-  // Estados para itens perto do vencimento
   const [nearExpirationItems, setNearExpirationItems] = useState([]);
   const [nearExpirationCount, setNearExpirationCount] = useState(0);
   const [loadingNearExpiration, setLoadingNearExpiration] = useState(true);
 
-  // Estados para itens de baixo estoque
   const [lowStockItems, setLowStockItems] = useState([]);
   const [lowStockCount, setLowStockCount] = useState(0);
   const [loadingLowStock, setLoadingLowStock] = useState(true);
 
-  // Estados para itens expirados no mês
   const [expiredThisMonthItems, setExpiredThisMonthItems] = useState([]);
   const [expiredThisMonthCount, setExpiredThisMonthCount] = useState(0);
   const [loadingExpiredThisMonth, setLoadingExpiredThisMonth] = useState(true);
@@ -66,13 +63,13 @@ export default function Home() {
   }
 
   function confirmLogout() {
-    removeToken(); // Remove o token de autenticação
+    removeToken(); 
     router.replace("/login");
   }
 
   return (
     <div className={styles.container}>
-      <Header onLogout={handleLogout} /> {/* Passando a função para o Header */}
+      <Header onLogout={handleLogout} /> 
       
       <div className={styles.rightSide}>
         <Card
@@ -96,7 +93,6 @@ export default function Home() {
 
       <Footer />
 
-      {/* Modal de confirmação de logout */}
       {showLogoutModal && (
         <div className={styles.modalOverlay}>
           <div className={styles.modal}>
