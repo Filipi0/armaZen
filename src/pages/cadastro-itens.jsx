@@ -12,7 +12,7 @@ function CadastroItens() {
   const [quantidade, setQuantidade] = useState("");
   const [unidadeMedida, setUnidadeMedida] = useState("caixa");
   const [validade, setValidade] = useState("");
-  const [showModal, setShowModal] = useState(false); // Estado do modal
+  const [showModal, setShowModal] = useState(false); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,9 +34,8 @@ function CadastroItens() {
       }
 
       await createProduct(novoItem, token);
-      setShowModal(true); // Exibe o modal de confirmação
+      setShowModal(true); 
 
-      // Limpa os campos após o cadastro
       setTipoItem("");
       setFornecedor("");
       setNomeItem("");
