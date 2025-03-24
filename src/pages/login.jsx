@@ -17,7 +17,6 @@ export default function Login() {
   const [showPassword, setShowPassword] = useState(false); 
   const router = useRouter();
 
-  // Validação do email
   function isValidEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
