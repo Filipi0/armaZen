@@ -8,24 +8,24 @@ import { getToken } from "../utils/storage.js";
 
 function VisualizarUsuarios() {
   const [usuarios, setUsuarios] = useState([]);
-  const [loading, setLoading] = useState(true); // ✅ Adicionado estado de loading
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUsuarios = async () => {
       try {
-        const token = getToken(); // ✅ Obtendo token corretamente
+        const token = getToken(); 
         if (!token) {
           alert("Erro: Usuário não autenticado.");
           return;
         }
 
-        const data = await getUsers(token); // ✅ Chamando o serviço corretamente
+        const data = await getUsers(token); 
         setUsuarios(data);
       } catch (error) {
         console.error("Erro ao carregar usuários:", error.message);
         alert("Erro ao carregar usuários");
       } finally {
-        setLoading(false); // ✅ Finaliza carregamento
+        setLoading(false); 
       }
     };
 
